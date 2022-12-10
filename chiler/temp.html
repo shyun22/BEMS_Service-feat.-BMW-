@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>BEMS</title>
+		<link rel="shortcut Icon" href="../static/images/factory.png" />
+  	<link rel="apple-touch-icon=precomposed" href="../static/images/factory.png" />
+  	<link rel="stylesheet" href="../static/css/font.css" />
+		<link rel="stylesheet" href="../static/css/reset.css" />
+		<link rel="stylesheet" href="../static/css/common.css" />
+		<link rel="stylesheet" href="../static/css/header.css" />
+		<link rel="stylesheet" href="../static/css/section.css" />
+		<link rel="stylesheet" href="../static/libs/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" />
+		<link rel="stylesheet" href="../static/libs/toastr/dist/build/toastr.min.css" />
+		<script src="../static/libs/jquery/dist/jquery.min.js"></script>
+		<script src="../static/libs/feather/feather.min.js"></script>
+		<script src="../static/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+		<script src="../static/libs/d3/d3.v5.min.js"></script>
+		<script src="../static/libs/toastr/dist/build/toastr.min.js"></script>
+		<script src="../address.js"></script>
+		    <!-- <script src="../static/js/notification.js"></script> -->
+	</head>
+	<body>
+		<div id="wrap">
+			<header class="header">
+				<div class="header_left">
+					<h1 class="hidden">BEMS</h1>
+					<img src="../static/images/logo.png" alt="logo" class="logo" width="50"/>
+					<a href="javascript:void(0)"><i data-feather="menu" aria-hidden="true" class='feather feather_gnb'></i><span class="hidden">메뉴 활성화 버튼</span></a>
+				</div>
+				<div class="header_right">
+					<div class="header_notice">
+						<img src="../static/images/factory.png" alt="factory-icon" class="factory-icon" />Building Energy Managemnet System
+					</div>
+					<div class="header_line"></div>
+				</div>
+			</header>
+			<aside class="aside gnb_hover">
+				<div class="aside_more"><i data-feather="more-horizontal" class="feather">more_horiz</i></div>
+				<h2>MENU</h2>
+				<nav id="gnb">
+					<ul class="main_menu">
+						<li id="ahu">
+							<a href="javascript:void(0)"><i data-feather="thermometer" class="feather feather_menu" aria-hidden="true"></i>AHU</a>
+							<ul class="sub_menu">
+								<li id="dashboard"><a href="../ahu/dashboard.html">대시보드</a></li>
+                <li id="temp"><a href="../ahu/temp.html">AHU전력</a></li>
+							</ul>
+						</li>
+						<li id="boiler">
+							<a href="javascript:void(0)"><i data-feather="thermometer" class="feather feather_menu" aria-hidden="true"></i>BOILER</a>
+							<ul class="sub_menu">
+								<li id="dashboard"><a href="../boiler/dashboard.html">대시보드</a></li>
+                <li id="temp"><a href="../ahu/temp.html">BOILER전력</a></li>
+				<li id="temp"><a href="../boiler/gas.html">BOILER가스</a></li>
+							</ul>
+						</li>
+						<li id="chiler">
+							<a href="javascript:void(0)"><i data-feather="thermometer" class="feather feather_menu" aria-hidden="true"></i>CHILER</a>
+							<ul class="sub_menu">
+								<li id="dashboard"><a href="../chiler/dashboard.html">대시보드</a></li>
+                <li id="temp"><a href="../ahu/temp.html">CHILER전력</a></li>
+							</ul>
+						</li>
+						<li id="power">
+							<a href="javascript:void(0)"><i data-feather="zap" class="feather feather_menu" aria-hidden="true"></i>전력소비량</a>
+							<ul class="sub_menu">
+								<li id="hour"><a href="../power/hour.html">시간별 전력소비량</a></li>
+								<li id="day"><a href="../power/day.html">일별 전력소비량</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+			</aside>
+			<main role="main">
+				<section class="section">
+          <h3 class="section_title">AHU 전력</h3>
+          <div class="temp_search">
+            <select id="fac_name">
+            </select>
+            <span class="fac_use">클린룸 : -</span>
+            <span class="fac_loc">설치장소 : -</span>
+            <div class="temp_form">
+              <label for="temp_date">조회일자</label>
+              <input type="date" id="temp_date" min="2022-08-01" max="2022-10-25" />
+              <button type="button">검색</button>
+            </div>
+          </div>
+          <div class="temp_chart">
+						<div class="temp_chart-container position-relative">
+							<div id="tooltip">
+								<div class="tooltipDate">2022년 11월 2일 00시 00분</div>
+								<div class="tooltipSet tooltip_line"><span class="tooltipTitle set">설정온도</span>&nbsp;:&nbsp;<span class="tooltipValue set">15.3 ℃</span></div>
+								<div class="tooltipSup tooltip_line"><span class="tooltipTitle sup">급기온도</span>&nbsp;:&nbsp;<span class="tooltipValue sup">21.5 ℃</span></div>
+								<div class="tooltipRet tooltip_line"><span class="tooltipTitle ret">환기온도</span>&nbsp;:&nbsp;<span class="tooltipValue ret">15.3 ℃</span></div>
+								<div class="tooltipOut tooltip_line"><span class="tooltipTitle out">외기온도</span>&nbsp;:&nbsp;<span class="tooltipValue out">21.5 ℃</span></div>
+							</div>
+							<div id="temp_chart">
+							</div>
+						</div>
+						<div class="temp-table table_container table-container position-relative">
+							<table class="text-center w100 hour-table" style="min-width: 800px">
+								<thead>
+									<tr>
+										<th width="20%">일자</th>
+										<th width="20%">설정온도</th>
+										<th width="20%">급기온도</th>
+										<th width="20%">환기온도</th>
+										<th width="20%">외기온도</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td colspan="5" class="table_empty">설비와 조회일자를 선택한 후, 검색 버튼을 눌러주세요</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
+<script src="../static/js/index.js"></script>
+<script src="../static/js/fn.js"></script>
+<script src="../static/js/apicall.js"></script>
+<script>
+	ahuConfigurationCall();
+	setTimeout(() => {ahuInfoCall()}, 100)
+
+	$('#fac_name').change(function(){
+		ahuInfoCall();
+	})
+
+	$('.temp_form button').click(function(){
+		ahuTempCall();
+	})
+</script>
