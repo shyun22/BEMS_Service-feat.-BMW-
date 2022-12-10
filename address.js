@@ -25,9 +25,6 @@ const hourPowerAddress = "/GetLpDataHourly";
 const dayPowerAddress = "/GetLpDataDaily";
 
 // 시간별 전력 소비량
-const AHU_TOTAL_POEWR11 = "/GetAhuTotalPowerHourly?runDate=";
-
-// 시간별 전력 소비량
 const AHU_TOTAL_POEWR = "/GetAhuTotalPowerHourly";
 
 // 일별 전력 소비량

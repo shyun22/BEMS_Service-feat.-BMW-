@@ -28,10 +28,10 @@ function updateCall() {
 
     // api 호출
     $.ajax({
-      url: `http://${ip}:${port}${dashboardAddress}`,
+      url: `http://${ip}:${port}${AHU_TEMP}`,
       method: "GET",
       dataType: "json",
-      data: { runDate: `20221024${hour}${minutes}` },
+      data: { runDate: `20100111${hour}${minutes}` },
     })
       .done((data) => {
         // 데이터 정리
@@ -39,52 +39,52 @@ function updateCall() {
         data.forEach(function (key) {
           switch (key.machine_num) {
             case "1":
-              convertData.ahu00_sat_temp = key.ahu_sat_temp;
-              convertData.ahu00_out_temp = key.ahu_out_temp;
-              convertData.ahu00_mat_temp = key.ahu_mat_temp;
-              convertData.ahu00_rat_temp = key.ahu_rat_temp;
+              convertData.ahu01_sat = key.ahu_sat;
+              convertData.ahu01_out = key.ahu_out;
+              convertData.ahu01_mat = key.ahu_mat;
+              convertData.ahu01_rat = key.ahu_rat;
               break;
             case "2":
-              convertData.ahu01_sat_temp = key.ahu_sat_temp;
-              convertData.ahu01_out_temp = key.ahu_out_temp;
-              convertData.ahu01_mat_temp = key.ahu_mat_temp;
-              convertData.ahu01_rat_temp = key.ahu_rat_temp;
+              convertData.ahu02_sat = key.ahu_sat;
+              convertData.ahu02_out = key.ahu_out;
+              convertData.ahu02_mat = key.ahu_mat;
+              convertData.ahu02_rat = key.ahu_rat;
               break;
             case "3":
-              convertData.ahu02_out_temp = key.ahu_out_temp;
-              convertData.ahu02_sat_temp = key.ahu_sat_temp;
-              convertData.ahu02_mat_temp = key.ahu_mat_temp;
-              convertData.ahu02_rat_temp = key.ahu_rat_temp;
+              convertData.ahu03_sat = key.ahu_sat;
+              convertData.ahu03_out = key.ahu_out;
+              convertData.ahu03_mat = key.ahu_mat;
+              convertData.ahu03_rat = key.ahu_rat;
               break;
             case "4":
-              convertData.ahu03_sat_temp = key.ahu_sat_temp;
-              convertData.ahu03_out_temp = key.ahu_out_temp;
-              convertData.ahu03_mat_temp = key.ahu_mat_temp;
-              convertData.ahu03_rat_temp = key.ahu_rat_temp;
+              convertData.ahu04_sat = key.ahu_sat;
+              convertData.ahu04_out = key.ahu_out;
+              convertData.ahu04_mat = key.ahu_mat;
+              convertData.ahu04_rat = key.ahu_rat;
               break;
             case "5":
-              convertData.ahu04_sat_temp = key.ahu_sat_temp;
-              convertData.ahu04_out_temp = key.ahu_out_temp;
-              convertData.ahu04_mat_temp = key.ahu_mat_temp;
-              convertData.ahu04_rat_temp = key.ahu_rat_temp;
+              convertData.ahu05_sat = key.ahu_sat;
+              convertData.ahu05_out = key.ahu_out;
+              convertData.ahu05_mat = key.ahu_mat;
+              convertData.ahu05_rat = key.ahu_rat;
               break;
             case "6":
-              convertData.ahu05_sat_temp = key.ahu_sat_temp;
-              convertData.ahu05_out_temp = key.ahu_out_temp;
-              convertData.ahu05_mat_temp = key.ahu_mat_temp;
-              convertData.ahu05_rat_temp = key.ahu_rat_temp;
+              convertData.ahu06_sat = key.ahu_sat;
+              convertData.ahu06_out = key.ahu_out;
+              convertData.ahu06_mat = key.ahu_mat;
+              convertData.ahu06_rat = key.ahu_rat;
               break;
             case "7":
-              convertData.ahu06_sat_temp = key.ahu_sat_temp;
-              convertData.ahu06_out_temp = key.ahu_out_temp;
-              convertData.ahu06_mat_temp = key.ahu_mat_temp;
-              convertData.ahu06_rat_temp = key.ahu_rat_temp;
+              convertData.ahu07_sat = key.ahu_sat;
+              convertData.ahu07_out = key.ahu_out;
+              convertData.ahu07_mat = key.ahu_mat;
+              convertData.ahu07_rat = key.ahu_rat;
               break;
             case "8":
-              convertData.ahu07_sat_temp = key.ahu_sat_temp;
-              convertData.ahu07_out_temp = key.ahu_out_temp;
-              convertData.ahu07_mat_temp = key.ahu_mat_temp;
-              convertData.ahu07_rat_temp = key.ahu_rat_temp;
+              convertData.ahu08_sat = key.ahu_sat;
+              convertData.ahu08_out = key.ahu_out;
+              convertData.ahu08_mat = key.ahu_mat;
+              convertData.ahu08_rat = key.ahu_rat;
               break;
             default:
               break;
@@ -186,10 +186,10 @@ function firstUpdateCall() {
 
   // api 호출
   $.ajax({
-    url: `http://${ip}:${port}${dashboardAddress}`,
+    url: `http://${ip}:${port}${AHU_TEMP}`,
     method: "GET",
     dataType: "json",
-    data: { runDate: `20221024${hour}${near}00` },
+    data: { runDate: `20100111${hour}${near}00` },
   })
     .done((data) => {
       // 데이터 정리
@@ -197,52 +197,52 @@ function firstUpdateCall() {
       data.map(function (key) {
         switch (key.machine_num) {
           case "1":
-            convertData.ahu00_sat_temp = key.ahu_sat_temp;
-            convertData.ahu00_out_temp = key.ahu_out_temp;
-            convertData.ahu00_mat_temp = key.ahu_mat_temp;
-            convertData.ahu00_rat_temp = key.ahu_rat_temp;
+            convertData.ahu01_sat = key.ahu_sat;
+            convertData.ahu01_out = key.ahu_out;
+            convertData.ahu01_mat = key.ahu_mat;
+            convertData.ahu01_rat = key.ahu_rat;
             break;
           case "2":
-            convertData.ahu01_sat_temp = key.ahu_sat_temp;
-            convertData.ahu01_out_temp = key.ahu_out_temp;
-            convertData.ahu01_mat_temp = key.ahu_mat_temp;
-            convertData.ahu01_rat_temp = key.ahu_rat_temp;
+            convertData.ahu02_sat = key.ahu_sat;
+            convertData.ahu02_out = key.ahu_out;
+            convertData.ahu02_mat = key.ahu_mat;
+            convertData.ahu02_rat = key.ahu_rat;
             break;
           case "3":
-            convertData.ahu02_out_temp = key.ahu_out_temp;
-            convertData.ahu02_sat_temp = key.ahu_sat_temp;
-            convertData.ahu02_mat_temp = key.ahu_mat_temp;
-            convertData.ahu02_rat_temp = key.ahu_rat_temp;
+            convertData.ahu03_sat = key.ahu_sat;
+            convertData.ahu03_out = key.ahu_out;
+            convertData.ahu03_mat = key.ahu_mat;
+            convertData.ahu03_rat = key.ahu_rat;
             break;
           case "4":
-            convertData.ahu03_sat_temp = key.ahu_sat_temp;
-            convertData.ahu03_out_temp = key.ahu_out_temp;
-            convertData.ahu03_mat_temp = key.ahu_mat_temp;
-            convertData.ahu03_rat_temp = key.ahu_rat_temp;
+            convertData.ahu04_sat = key.ahu_sat;
+            convertData.ahu04_out = key.ahu_out;
+            convertData.ahu04_mat = key.ahu_mat;
+            convertData.ahu04_rat = key.ahu_rat;
             break;
           case "5":
-            convertData.ahu04_sat_temp = key.ahu_sat_temp;
-            convertData.ahu04_out_temp = key.ahu_out_temp;
-            convertData.ahu04_mat_temp = key.ahu_mat_temp;
-            convertData.ahu04_rat_temp = key.ahu_rat_temp;
+            convertData.ahu05_sat = key.ahu_sat;
+            convertData.ahu05_out = key.ahu_out;
+            convertData.ahu05_mat = key.ahu_mat;
+            convertData.ahu05_rat = key.ahu_rat;
             break;
           case "6":
-            convertData.ahu05_sat_temp = key.ahu_sat_temp;
-            convertData.ahu05_out_temp = key.ahu_out_temp;
-            convertData.ahu05_mat_temp = key.ahu_mat_temp;
-            convertData.ahu05_rat_temp = key.ahu_rat_temp;
+            convertData.ahu06_sat = key.ahu_sat;
+            convertData.ahu06_out = key.ahu_out;
+            convertData.ahu06_mat = key.ahu_mat;
+            convertData.ahu06_rat = key.ahu_rat;
             break;
           case "7":
-            convertData.ahu06_sat_temp = key.ahu_sat_temp;
-            convertData.ahu06_out_temp = key.ahu_out_temp;
-            convertData.ahu06_mat_temp = key.ahu_mat_temp;
-            convertData.ahu06_rat_temp = key.ahu_rat_temp;
+            convertData.ahu07_sat = key.ahu_sat;
+            convertData.ahu07_out = key.ahu_out;
+            convertData.ahu07_mat = key.ahu_mat;
+            convertData.ahu07_rat = key.ahu_rat;
             break;
           case "8":
-            convertData.ahu07_sat_temp = key.ahu_sat_temp;
-            convertData.ahu07_out_temp = key.ahu_out_temp;
-            convertData.ahu07_mat_temp = key.ahu_mat_temp;
-            convertData.ahu07_rat_temp = key.ahu_rat_temp;
+            convertData.ahu08_sat = key.ahu_sat;
+            convertData.ahu08_out = key.ahu_out;
+            convertData.ahu08_mat = key.ahu_mat;
+            convertData.ahu08_rat = key.ahu_rat;
             break;
           default:
             break;

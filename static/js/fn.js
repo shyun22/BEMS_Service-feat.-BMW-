@@ -5,177 +5,129 @@ function update(a) {
   // ahu-01
   $(".ahu-01 .svg_sup").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu00_sup_temp)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu01_sat)) / 100 + ", 1400"
   );
   $(".ahu-01 .svg_set").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu00_set_temp)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu01_out)) / 100 + ", 1400"
   );
   $(".ahu-01 .svg_sup_box .temp_value").html(
-    Number(a.ahu00_sup_temp).toFixed(1) + " ℃"
+    Number(a.ahu01_sat).toFixed(1) + " ℃"
   );
   $(".ahu-01 .svg_set_box .temp_value").html(
-    Number(a.ahu00_set_temp).toFixed(1) + " ℃"
+    Number(a.ahu01_out).toFixed(1) + " ℃"
   );
 
   // ahu-02
   $(".ahu-02 .svg_sup").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu01_sup_temp)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu02_sat)) / 100 + ", 1400"
   );
   $(".ahu-02 .svg_set").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu01_set_temp)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu02_out)) / 100 + ", 1400"
   );
   $(".ahu-02 .svg_sup_box .temp_value").html(
-    Number(a.ahu01_sup_temp).toFixed(1) + " ℃"
+    Number(a.ahu02_sat).toFixed(1) + " ℃"
   );
   $(".ahu-02 .svg_set_box .temp_value").html(
-    Number(a.ahu01_set_temp).toFixed(1) + " ℃"
+    Number(a.ahu02_out).toFixed(1) + " ℃"
   );
 
   // ahu-03
   $(".ahu-03 .svg_sup").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu02_sup_temp)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu03_sat)) / 100 + ", 1400"
   );
   $(".ahu-03 .svg_set").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu02_set_temp)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu03_out)) / 100 + ", 1400"
   );
   $(".ahu-03 .svg_sup_box .temp_value").html(
-    Number(a.ahu02_sup_temp).toFixed(1) + " ℃"
+    Number(a.ahu03_sat).toFixed(1) + " ℃"
   );
   $(".ahu-03 .svg_set_box .temp_value").html(
-    Number(a.ahu02_set_temp).toFixed(1) + " ℃"
+    Number(a.ahu03_out).toFixed(1) + " ℃"
   );
 
   // ahu-04
   $(".ahu-04 .svg_sup").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu03_sup_temp)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu04_sat)) / 100 + ", 1400"
   );
   $(".ahu-04 .svg_set").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu03_set_temp)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu04_out)) / 100 + ", 1400"
   );
   $(".ahu-04 .svg_sup_box .temp_value").html(
-    Number(a.ahu03_sup_temp).toFixed(1) + " ℃"
+    Number(a.ahu04_sat).toFixed(1) + " ℃"
   );
   $(".ahu-04 .svg_set_box .temp_value").html(
-    Number(a.ahu03_set_temp).toFixed(1) + " ℃"
-  );
-
-  // ahu-04b
-  $(".ahu-04b .svg_sup").attr(
-    "stroke-dasharray",
-    (maxValue * Number(a.ahu04_sup_temp)) / 100 + ", 1400"
-  );
-  $(".ahu-04b .svg_set").attr(
-    "stroke-dasharray",
-    (maxValue * Number(a.ahu04_set_temp)) / 100 + ", 1400"
-  );
-  $(".ahu-04b .svg_sup_box .temp_value").html(
-    Number(a.ahu04_sup_temp).toFixed(1) + " ℃"
-  );
-  $(".ahu-04b .svg_set_box .temp_value").html(
-    Number(a.ahu04_set_temp).toFixed(1) + " ℃"
+    Number(a.ahu04_out).toFixed(1) + " ℃"
   );
 
   // ahu-05
-  $(".ahu-05 .svg_sup").attr(
+  $(".ahu-04b .svg_sup").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu05_sup_temp)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu05_sat)) / 100 + ", 1400"
   );
-  $(".ahu-05 .svg_set").attr(
+  $(".ahu-04b .svg_set").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu05_set_temp)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu05_out)) / 100 + ", 1400"
   );
-  $(".ahu-05 .svg_sup_box .temp_value").html(
-    Number(a.ahu05_sup_temp).toFixed(1) + " ℃"
+  $(".ahu-04b .svg_sup_box .temp_value").html(
+    Number(a.ahu05_sat).toFixed(1) + " ℃"
   );
-  $(".ahu-05 .svg_set_box .temp_value").html(
-    Number(a.ahu05_set_temp).toFixed(1) + " ℃"
+  $(".ahu-04b .svg_set_box .temp_value").html(
+    Number(a.ahu05_out).toFixed(1) + " ℃"
   );
 
   // ahu-06
-  $(".ahu-06 .svg_sup").attr(
+  $(".ahu-05 .svg_sup").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu06_sup_temp)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu06_sat)) / 100 + ", 1400"
   );
-  $(".ahu-06 .svg_set").attr(
+  $(".ahu-05 .svg_set").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu06_set_temp)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu06_out)) / 100 + ", 1400"
   );
-  $(".ahu-06 .svg_sup_box .temp_value").html(
-    Number(a.ahu06_sup_temp).toFixed(1) + " ℃"
+  $(".ahu-05 .svg_sup_box .temp_value").html(
+    Number(a.ahu06_sat).toFixed(1) + " ℃"
   );
-  $(".ahu-06 .svg_set_box .temp_value").html(
-    Number(a.ahu06_set_temp).toFixed(1) + " ℃"
+  $(".ahu-05 .svg_set_box .temp_value").html(
+    Number(a.ahu06_out).toFixed(1) + " ℃"
   );
 
   // ahu-07
-  $(".ahu-07 .svg_sup").attr(
+  $(".ahu-06 .svg_sup").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu07_sup_temp)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu07_sat)) / 100 + ", 1400"
   );
-  $(".ahu-07 .svg_set").attr(
+  $(".ahu-06 .svg_set").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu07_set_temp)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu07_out)) / 100 + ", 1400"
   );
-  $(".ahu-07 .svg_sup_box .temp_value").html(
-    Number(a.ahu07_sup_temp).toFixed(1) + " ℃"
+  $(".ahu-06 .svg_sup_box .temp_value").html(
+    Number(a.ahu07_sat).toFixed(1) + " ℃"
   );
-  $(".ahu-07 .svg_set_box .temp_value").html(
-    Number(a.ahu07_set_temp).toFixed(1) + " ℃"
+  $(".ahu-06 .svg_set_box .temp_value").html(
+    Number(a.ahu07_out).toFixed(1) + " ℃"
   );
 
   // ahu-08
-  $(".ahu-08 .svg_sup").attr(
+  $(".ahu-07 .svg_sup").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu08_sup_temp)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu08_sat)) / 100 + ", 1400"
   );
-  $(".ahu-08 .svg_set").attr(
+  $(".ahu-07 .svg_set").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu08_set_temp)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu08_out)) / 100 + ", 1400"
   );
-  $(".ahu-08 .svg_sup_box .temp_value").html(
-    Number(a.ahu08_sup_temp).toFixed(1) + " ℃"
+  $(".ahu-07 .svg_sup_box .temp_value").html(
+    Number(a.ahu08_sat).toFixed(1) + " ℃"
   );
-  $(".ahu-08 .svg_set_box .temp_value").html(
-    Number(a.ahu08_set_temp).toFixed(1) + " ℃"
-  );
-
-  // ahu-09
-  $(".ahu-09 .svg_sup").attr(
-    "stroke-dasharray",
-    (maxValue * Number(a.ahu09_sup_temp)) / 100 + ", 1400"
-  );
-  $(".ahu-09 .svg_set").attr(
-    "stroke-dasharray",
-    (maxValue * Number(a.ahu09_set_temp)) / 100 + ", 1400"
-  );
-  $(".ahu-09 .svg_sup_box .temp_value").html(
-    Number(a.ahu09_sup_temp).toFixed(1) + " ℃"
-  );
-  $(".ahu-09 .svg_set_box .temp_value").html(
-    Number(a.ahu09_set_temp).toFixed(1) + " ℃"
-  );
-
-  // ahu-10
-  $(".ahu-10 .svg_sup").attr(
-    "stroke-dasharray",
-    (maxValue * Number(a.ahu10_sup_temp)) / 100 + ", 1400"
-  );
-  $(".ahu-10 .svg_set").attr(
-    "stroke-dasharray",
-    (maxValue * Number(a.ahu10_set_temp)) / 100 + ", 1400"
-  );
-  $(".ahu-10 .svg_sup_box .temp_value").html(
-    Number(a.ahu10_sup_temp).toFixed(1) + " ℃"
-  );
-  $(".ahu-10 .svg_set_box .temp_value").html(
-    Number(a.ahu10_set_temp).toFixed(1) + " ℃"
+  $(".ahu-07 .svg_set_box .temp_value").html(
+    Number(a.ahu08_out).toFixed(1) + " ℃"
   );
 }
 
