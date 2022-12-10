@@ -36,6 +36,9 @@ const AHU_DAILY_POWER = "/GetAhuTotalPowerDaily";
 // 공조기 온도 트렌드
 const AHU_TEMP = "/GetAhuTempData";
 
+// 칠러 환수온도 정보
+const CHILER_CWST = "/GetChillerCwstData";
+
 // DB IP = 43.200.196.117
 // user = root
 // PW = 1234

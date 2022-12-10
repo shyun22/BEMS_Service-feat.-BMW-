@@ -415,3 +415,43 @@ function dayPowerCall() {
       console.log(err);
     });
 }
+
+// chiler 환수온도 호출
+function chilerTempCall() {
+  // 날짜 선택하지 않았을 시, 선택하라는 메시지 띄우기
+  if ($("#temp_date").val() == "") {
+    toastr.warning("조회일자를 선택해주세요", "error");
+    return;
+  }
+
+  var dateConvert = jsonFormDateParse($("#temp_date").val());
+
+  // api 호출
+  $.ajax({
+    url: `http://${ip}:${port}${CHILER_CWST}`,
+    method: "GET",
+    dataType: "json",
+    data: {
+      machine_num: $("#fac_name").val(),
+      startDate: dateConvert,
+      endDate: dateConvert,
+    },
+  })
+    .done((data) => {
+      // 호출 동안 검색 버튼이 비활성화 되도록 막기
+      $(".temp_form button").attr("disabled", "true");
+
+      var json = data;
+      json.forEach((e) => {
+        e.runDateTime = jsonDateParse(String(e.runDateTime), "temp");
+      });
+
+      ahuChart(json);
+      ahuTable(json);
+
+      $(".temp_form button").removeAttr("disabled");
+    })
+    .fail((err) => {
+      console.log(err);
+    });
+}
