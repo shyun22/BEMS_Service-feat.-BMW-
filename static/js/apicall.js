@@ -37,50 +37,54 @@ function updateCall() {
         // 데이터 정리
         const convertData = {};
         data.forEach(function (key) {
-          switch (key.ahu_id) {
-            case "A00":
-              convertData.ahu00_set_temp = key.ahu_set_temp;
-              convertData.ahu00_sup_temp = key.ahu_sup_temp;
+          switch (key.machine_num) {
+            case "1":
+              convertData.ahu00_sat_temp = key.ahu_sat_temp;
+              convertData.ahu00_out_temp = key.ahu_out_temp;
+              convertData.ahu00_mat_temp = key.ahu_mat_temp;
+              convertData.ahu00_rat_temp = key.ahu_rat_temp;
               break;
-            case "A01":
-              convertData.ahu01_set_temp = key.ahu_set_temp;
-              convertData.ahu01_sup_temp = key.ahu_sup_temp;
+            case "2":
+              convertData.ahu01_sat_temp = key.ahu_sat_temp;
+              convertData.ahu01_out_temp = key.ahu_out_temp;
+              convertData.ahu01_mat_temp = key.ahu_mat_temp;
+              convertData.ahu01_rat_temp = key.ahu_rat_temp;
               break;
-            case "A02":
-              convertData.ahu02_set_temp = key.ahu_set_temp;
-              convertData.ahu02_sup_temp = key.ahu_sup_temp;
+            case "3":
+              convertData.ahu02_out_temp = key.ahu_out_temp;
+              convertData.ahu02_sat_temp = key.ahu_sat_temp;
+              convertData.ahu02_mat_temp = key.ahu_mat_temp;
+              convertData.ahu02_rat_temp = key.ahu_rat_temp;
               break;
-            case "A03":
-              convertData.ahu03_set_temp = key.ahu_set_temp;
-              convertData.ahu03_sup_temp = key.ahu_sup_temp;
+            case "4":
+              convertData.ahu03_sat_temp = key.ahu_sat_temp;
+              convertData.ahu03_out_temp = key.ahu_out_temp;
+              convertData.ahu03_mat_temp = key.ahu_mat_temp;
+              convertData.ahu03_rat_temp = key.ahu_rat_temp;
               break;
-            case "A04":
-              convertData.ahu04_set_temp = key.ahu_set_temp;
-              convertData.ahu04_sup_temp = key.ahu_sup_temp;
+            case "5":
+              convertData.ahu04_sat_temp = key.ahu_sat_temp;
+              convertData.ahu04_out_temp = key.ahu_out_temp;
+              convertData.ahu04_mat_temp = key.ahu_mat_temp;
+              convertData.ahu04_rat_temp = key.ahu_rat_temp;
               break;
-            case "A05":
-              convertData.ahu05_set_temp = key.ahu_set_temp;
-              convertData.ahu05_sup_temp = key.ahu_sup_temp;
+            case "6":
+              convertData.ahu05_sat_temp = key.ahu_sat_temp;
+              convertData.ahu05_out_temp = key.ahu_out_temp;
+              convertData.ahu05_mat_temp = key.ahu_mat_temp;
+              convertData.ahu05_rat_temp = key.ahu_rat_temp;
               break;
-            case "A06":
-              convertData.ahu06_set_temp = key.ahu_set_temp;
-              convertData.ahu06_sup_temp = key.ahu_sup_temp;
+            case "7":
+              convertData.ahu06_sat_temp = key.ahu_sat_temp;
+              convertData.ahu06_out_temp = key.ahu_out_temp;
+              convertData.ahu06_mat_temp = key.ahu_mat_temp;
+              convertData.ahu06_rat_temp = key.ahu_rat_temp;
               break;
-            case "A07":
-              convertData.ahu07_set_temp = key.ahu_set_temp;
-              convertData.ahu07_sup_temp = key.ahu_sup_temp;
-              break;
-            case "A08":
-              convertData.ahu08_set_temp = key.ahu_set_temp;
-              convertData.ahu08_sup_temp = key.ahu_sup_temp;
-              break;
-            case "A09":
-              convertData.ahu09_set_temp = key.ahu_set_temp;
-              convertData.ahu09_sup_temp = key.ahu_sup_temp;
-              break;
-            case "A10":
-              convertData.ahu10_set_temp = key.ahu_set_temp;
-              convertData.ahu10_sup_temp = key.ahu_sup_temp;
+            case "8":
+              convertData.ahu07_sat_temp = key.ahu_sat_temp;
+              convertData.ahu07_out_temp = key.ahu_out_temp;
+              convertData.ahu07_mat_temp = key.ahu_mat_temp;
+              convertData.ahu07_rat_temp = key.ahu_rat_temp;
               break;
             default:
               break;
@@ -191,54 +195,54 @@ function firstUpdateCall() {
       // 데이터 정리
       const convertData = {};
       data.map(function (key) {
-        switch (key.ahu_id) {
+        switch (key.machine_num) {
           case "1":
+            convertData.ahu00_sat_temp = key.ahu_sat_temp;
+            convertData.ahu00_out_temp = key.ahu_out_temp;
+            convertData.ahu00_mat_temp = key.ahu_mat_temp;
+            convertData.ahu00_rat_temp = key.ahu_rat_temp;
+            break;
+          case "2":
             convertData.ahu01_sat_temp = key.ahu_sat_temp;
             convertData.ahu01_out_temp = key.ahu_out_temp;
             convertData.ahu01_mat_temp = key.ahu_mat_temp;
             convertData.ahu01_rat_temp = key.ahu_rat_temp;
             break;
-          case "2":
-            convertData.ahu02_sat_temp = key.ahu_sat_temp;
+          case "3":
             convertData.ahu02_out_temp = key.ahu_out_temp;
+            convertData.ahu02_sat_temp = key.ahu_sat_temp;
             convertData.ahu02_mat_temp = key.ahu_mat_temp;
             convertData.ahu02_rat_temp = key.ahu_rat_temp;
             break;
-          case "3":
+          case "4":
             convertData.ahu03_sat_temp = key.ahu_sat_temp;
             convertData.ahu03_out_temp = key.ahu_out_temp;
             convertData.ahu03_mat_temp = key.ahu_mat_temp;
             convertData.ahu03_rat_temp = key.ahu_rat_temp;
             break;
-          case "4":
+          case "5":
             convertData.ahu04_sat_temp = key.ahu_sat_temp;
             convertData.ahu04_out_temp = key.ahu_out_temp;
             convertData.ahu04_mat_temp = key.ahu_mat_temp;
             convertData.ahu04_rat_temp = key.ahu_rat_temp;
             break;
-          case "5":
+          case "6":
             convertData.ahu05_sat_temp = key.ahu_sat_temp;
             convertData.ahu05_out_temp = key.ahu_out_temp;
             convertData.ahu05_mat_temp = key.ahu_mat_temp;
             convertData.ahu05_rat_temp = key.ahu_rat_temp;
             break;
-          case "6":
+          case "7":
             convertData.ahu06_sat_temp = key.ahu_sat_temp;
             convertData.ahu06_out_temp = key.ahu_out_temp;
             convertData.ahu06_mat_temp = key.ahu_mat_temp;
             convertData.ahu06_rat_temp = key.ahu_rat_temp;
             break;
-          case "7":
+          case "8":
             convertData.ahu07_sat_temp = key.ahu_sat_temp;
             convertData.ahu07_out_temp = key.ahu_out_temp;
             convertData.ahu07_mat_temp = key.ahu_mat_temp;
             convertData.ahu07_rat_temp = key.ahu_rat_temp;
-            break;
-          case "8":
-            convertData.ahu08_sat_temp = key.ahu_sat_temp;
-            convertData.ahu08_out_temp = key.ahu_out_temp;
-            convertData.ahu08_mat_temp = key.ahu_mat_temp;
-            convertData.ahu08_rat_temp = key.ahu_rat_temp;
             break;
           default:
             break;
@@ -312,7 +316,7 @@ function ahuTempCall() {
     method: "GET",
     dataType: "json",
     data: {
-      ahu_id: $("#fac_name").val(),
+      machine_num: $("#fac_name").val(),
       startDate: dateConvert,
       endDate: dateConvert,
     },
@@ -365,6 +369,7 @@ function hourPowerCall() {
 
       $(".power_search").removeAttr("disabled");
     })
+
     .fail((err) => {
       console.log(err);
     });

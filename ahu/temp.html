@@ -112,10 +112,10 @@
 								<thead>
 									<tr>
 										<th width="20%">일자</th>
-										<th width="20%">설정온도</th>
 										<th width="20%">급기온도</th>
-										<th width="20%">환기온도</th>
 										<th width="20%">외기온도</th>
+										<th width="20%">혼합온도</th>
+										<th width="20%">환기온도</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -135,8 +135,8 @@
 <script src="../static/js/fn.js"></script>
 <script src="../static/js/apicall.js"></script>
 <script>
-	ahuConfigurationCall();
-	setTimeout(() => {ahuInfoCall()}, 100)
+	// ahuConfigurationCall();
+	// setTimeout(() => {ahuInfoCall()}, 100)
 
 	$('#fac_name').change(function(){
 		ahuInfoCall();
