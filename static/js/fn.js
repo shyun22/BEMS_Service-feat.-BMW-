@@ -196,11 +196,11 @@ function ahuInfos(a) {
   });
 }
 
-// AHU Select Change
-function ahuInfo(a) {
-  $(".fac_use").html(`클린룸 : ${a[0].FAC_USE}`);
-  $(".fac_loc").html(`설치장소 : ${a[0].FAC_LOC}`);
-}
+// // AHU Select Change
+// function ahuInfo(a) {
+//   $(".fac_use").html(`클린룸 : ${a[0].FAC_USE}`);
+//   $(".fac_loc").html(`설치장소 : ${a[0].FAC_LOC}`);
+// }
 
 // 차트 공통
 var chartArray = [];
@@ -224,10 +224,10 @@ function ahuChart(a) {
   chartType = "temp";
 
   // x축 범위 설정 (금일 00시 ~ 익일 00시)
-  let today = new Date(a[0].run_datetime);
+  let today = new Date(a[0].runDateTime);
   today.setHours(0);
   today.setMinutes(0);
-  let tomorrow = new Date(a[0].run_datetime);
+  let tomorrow = new Date(a[0].runDateTime);
   tomorrow.setDate(tomorrow.getDate() + 1);
   tomorrow.setHours(0);
   tomorrow.setMinutes(0);
@@ -235,19 +235,19 @@ function ahuChart(a) {
   // autoScale을 위한 최소값 최대값 설정
   let maxVal = a.map((key) => {
     var array = [
-      Number(key.ahu_set_temp),
-      Number(key.ahu_sup_temp),
-      Number(key.ahu_ret_temp),
-      Number(key.ahu_out_temp),
+      Number(key.ahu_sat),
+      Number(key.ahu_oat),
+      Number(key.ahu_mat),
+      Number(key.ahu_rat),
     ];
     return Math.max(...array);
   });
   let minVal = a.map((key) => {
     var array = [
-      Number(key.ahu_set_temp),
-      Number(key.ahu_sup_temp),
-      Number(key.ahu_ret_temp),
-      Number(key.ahu_out_temp),
+      Number(key.ahu_sat),
+      Number(key.ahu_oat),
+      Number(key.ahu_mat),
+      Number(key.ahu_rat),
     ];
     return Math.min(...array);
   });
@@ -269,34 +269,34 @@ function ahuChart(a) {
   const valueline = d3
     .line()
     .x((d) => {
-      return x(new Date(d.run_datetime));
+      return x(new Date(d.runDateTime));
     })
     .y((d) => {
-      return y(Number(d.ahu_set_temp));
+      return y(Number(d.ahu_sat));
     });
   const valueline2 = d3
     .line()
     .x((d) => {
-      return x(new Date(d.run_datetime));
+      return x(new Date(d.runDateTime));
     })
     .y((d) => {
-      return y(Number(d.ahu_sup_temp));
+      return y(Number(d.ahu_oat));
     });
   const valueline3 = d3
     .line()
     .x((d) => {
-      return x(new Date(d.run_datetime));
+      return x(new Date(d.runDateTime));
     })
     .y((d) => {
-      return y(Number(d.ahu_ret_temp));
+      return y(Number(d.ahu_mat));
     });
   const valueline4 = d3
     .line()
     .x((d) => {
-      return x(new Date(d.run_datetime));
+      return x(new Date(d.runDateTime));
     })
     .y((d) => {
-      return y(Number(d.ahu_out_temp));
+      return y(Number(d.ahu_rat));
     });
 
   // 차트 틀(svg) 생성
@@ -354,7 +354,7 @@ function ahuChart(a) {
     .attr("fill", "#282828")
     .text("온도 (℃)");
 
-  // 차트에 라인 생성 (설정온도)
+  // 차트에 라인 생성 (급기온도)
   const linePath = svg
     .append("path")
     .data([a])
@@ -365,7 +365,7 @@ function ahuChart(a) {
     .style("stroke-width", 2)
     .style("stroke", "#FF3434");
 
-  // 차트에 라인 생성 (공급온도)
+  // 차트에 라인 생성 (외기온도)
   const linePath2 = svg
     .append("path")
     .data([a])
@@ -376,7 +376,7 @@ function ahuChart(a) {
     .style("stroke-width", 2)
     .style("stroke", "#4A7EF9");
 
-  // 차트에 라인 생성 (환기온도)
+  // 차트에 라인 생성 (혼합온도)
   const linePath3 = svg
     .append("path")
     .data([a])
@@ -387,7 +387,7 @@ function ahuChart(a) {
     .style("stroke-width", 2)
     .style("stroke", "orange");
 
-  // 차트에 라인 생성 (외기온도)
+  // 차트에 라인 생성 (환기온도)
   const linePath4 = svg
     .append("path")
     .data([a])
@@ -417,7 +417,7 @@ function ahuChart(a) {
     .attr("y1", 0)
     .attr("y2", `${ahuHeight - ahuMargin.top}`);
 
-  // 설정온도 circle 생성
+  // 급기온도 circle 생성
   focus
     .append("circle")
     .attr("class", "circle_y1")
@@ -427,7 +427,7 @@ function ahuChart(a) {
     .attr("stroke-width", 2)
     .attr("r", 4); // 반지름값
 
-  // 공급온도 circle 생성
+  // 외기온도 circle 생성
   focus
     .append("circle")
     .attr("class", "circle_y2")
@@ -437,7 +437,7 @@ function ahuChart(a) {
     .attr("stroke-width", 2)
     .attr("r", 4); // 반지름값
 
-  // 설정온도 circle 생성
+  // 혼합온도 circle 생성
   focus
     .append("circle")
     .attr("class", "circle_y3")
@@ -447,7 +447,7 @@ function ahuChart(a) {
     .attr("stroke-width", 2)
     .attr("r", 4); // 반지름값
 
-  // 공급온도 circle 생성
+  // 환기온도 circle 생성
   focus
     .append("circle")
     .attr("class", "circle_y4")
@@ -467,21 +467,21 @@ function ahuChart(a) {
     .attr("opacity", 0)
     .on("mousemove", function () {
       // 마우스 위치 구하여 위치에 맞는 배열 값 구하기
-      const bisect = d3.bisector((d) => new Date(d.run_datetime)).left,
+      const bisect = d3.bisector((d) => new Date(d.runDateTime)).left,
         x99 = x.invert(d3.mouse(this)[0]),
         i = bisect(a, x99, 1),
         d0 = a[i - 1],
         d1 = a[i],
-        dType = typeof a.run_datetime,
+        dType = typeof a.runDateTime,
         d =
           dType != "undefined"
-            ? x - new Date(d0.run_datetime) > new Date(d1.run_datetime) - x99
+            ? x - new Date(d0.runDateTime) > new Date(d1.runDateTime) - x99
               ? d1
               : d0
             : d0;
 
       // 날짜 값
-      const dDate = new Date(d.run_datetime);
+      const dDate = new Date(d.runDateTime);
 
       // vertical line 위치 변경
       focus
@@ -492,47 +492,47 @@ function ahuChart(a) {
           `translate(${x(dDate) + ahuMargin.left}, ${ahuMargin.bottom})`
         );
 
-      // 설정 온도 circle 위치 변경
+      // 급기 온도 circle 위치 변경
       focus
         .select(".circle_y1")
         .attr("opacity", 1)
         .attr(
           "transform",
           `translate(${x(dDate) + ahuMargin.left}, ${
-            y(d.ahu_set_temp) + ahuMargin.bottom
+            y(d.ahu_sat) + ahuMargin.bottom
           })`
         );
 
-      // 공급 온도 circle 위치 변경
+      // 외기 온도 circle 위치 변경
       focus
         .select(".circle_y2")
         .attr("opacity", 1)
         .attr(
           "transform",
           `translate(${x(dDate) + ahuMargin.left}, ${
-            y(d.ahu_sup_temp) + ahuMargin.bottom
+            y(d.ahu_oat) + ahuMargin.bottom
           })`
         );
 
-      // 환기 온도 circle 위치 변경
+      // 혼합 온도 circle 위치 변경
       focus
         .select(".circle_y3")
         .attr("opacity", 1)
         .attr(
           "transform",
           `translate(${x(dDate) + ahuMargin.left}, ${
-            y(d.ahu_ret_temp) + ahuMargin.bottom
+            y(d.ahu_mat) + ahuMargin.bottom
           })`
         );
 
-      // 외기 온도 circle 위치 변경
+      // 환기 온도 circle 위치 변경
       focus
         .select(".circle_y4")
         .attr("opacity", 1)
         .attr(
           "transform",
           `translate(${x(dDate) + ahuMargin.left}, ${
-            y(d.ahu_out_temp) + ahuMargin.bottom
+            y(d.ahu_rat) + ahuMargin.bottom
           })`
         );
 
@@ -541,7 +541,7 @@ function ahuChart(a) {
       tooltip.style.opacity = 1;
 
       // 툴팁 위치 설정
-      if (x(new Date(d.run_datetime)) + tooltip.offsetWidth < ahuWidth) {
+      if (x(new Date(d.runDateTime)) + tooltip.offsetWidth < ahuWidth) {
         tooltip.style.left = `${x(dDate) + 72}px`;
       } else {
         tooltip.style.left = `${x(dDate) - 128}px`;
@@ -561,10 +561,10 @@ function ahuChart(a) {
       $(".tooltipDate").text(
         `${dYears}년 ${dMonth}월 ${dDay}일 ${dHour}시 ${dMin}분`
       );
-      $(".tooltipValue.set").text(`${Number(d.ahu_set_temp).toFixed(1)} ℃`);
-      $(".tooltipValue.sup").text(`${Number(d.ahu_sup_temp).toFixed(1)} ℃`);
-      $(".tooltipValue.ret").text(`${Number(d.ahu_ret_temp).toFixed(1)} ℃`);
-      $(".tooltipValue.out").text(`${Number(d.ahu_out_temp).toFixed(1)} ℃`);
+      $(".tooltipValue.set").text(`${Number(d.ahu_sat).toFixed(1)} ℃`);
+      $(".tooltipValue.sup").text(`${Number(d.ahu_oat).toFixed(1)} ℃`);
+      $(".tooltipValue.ret").text(`${Number(d.ahu_mat).toFixed(1)} ℃`);
+      $(".tooltipValue.out").text(`${Number(d.ahu_rat).toFixed(1)} ℃`);
     })
     .on("mouseleave", () => {
       // 마우스가 차트 밖으로 벗어 났을 때 focus 숨기기
@@ -588,22 +588,22 @@ function ahuChart(a) {
       <div>
         <input type="checkbox" id="set_btn" class="ahu_label_btn" data-label="set" checked />
         <label for="set_btn" class="label_box set"></label>
-        <label for="set_btn" class="label set">설정온도</label>
+        <label for="set_btn" class="label set">급기온도</label>
       </div>
       <div>
         <input type="checkbox" id="sup_btn" class="ahu_label_btn" data-label="sup" checked />
         <label for="sup_btn" class="label_box sup"></label>
-        <label for="sup_btn" class="label sup">급기온도</label>
+        <label for="sup_btn" class="label sup">외기온도</label>
       </div>
       <div>
         <input type="checkbox" id="ret_btn" class="ahu_label_btn" data-label="ret" checked />
         <label for="ret_btn" class="label_box ret"></label>
-        <label for="ret_btn" class="label ret">환기온도</lab>
+        <label for="ret_btn" class="label ret">혼합온도</lab>
       </div>
       <div>
         <input type="checkbox" id="out_btn" class="ahu_label_btn" data-label="out" checked />
         <label for="out_btn" class="label_box out"></label>
-        <label for="out_btn" class="label out">외기온도</label>
+        <label for="out_btn" class="label out">환기온도</label>
       </div>
     </div>`
   );
@@ -615,11 +615,11 @@ function ahuTable(a) {
   table.innerHTML = "";
   a.forEach((e, i) => {
     table.innerHTML += `<tr>
-      <td>${e.run_datetime}</td>
-      <td>${Number(e.ahu_sat_temp).toFixed(1)} ℃</td>
-      <td>${Number(e.ahu_out_temp).toFixed(1)} ℃</td>
-      <td>${Number(e.ahu_mat_temp).toFixed(1)} ℃</td>
-      <td>${Number(e.ahu_rat_temp).toFixed(1)} ℃</td>
+      <td>${e.runDateTime}</td>
+      <td>${Number(e.ahu_sat).toFixed(1)} ℃</td>
+      <td>${Number(e.ahu_oat).toFixed(1)} ℃</td>
+      <td>${Number(e.ahu_mat).toFixed(1)} ℃</td>
+      <td>${Number(e.ahu_rat).toFixed(1)} ℃</td>
       </tr>`;
   });
 }

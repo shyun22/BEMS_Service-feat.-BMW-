@@ -327,7 +327,7 @@ function ahuTempCall() {
 
       var json = data;
       json.forEach((e) => {
-        e.run_datetime = jsonDateParse(String(e.run_datetime), "temp");
+        e.runDateTime = jsonDateParse(String(e.runDateTime), "temp");
       });
 
       ahuChart(json);
