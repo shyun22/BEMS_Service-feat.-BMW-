@@ -77,24 +77,32 @@
 				<section class="section">
           <h3 class="section_title">AHU 전력</h3>
           <div class="temp_search">
-            <select id="fac_name">
+            <select id="fac_name" >
+				<option value="1" selected>공조기-01</option>
+                  <option value="2" >공조기-02</option>
+                  <option value="3" >공조기-03</option>
+                  <option value="4" >공조기-04</option>
+                  <option value="5" >공조기-05</option>
+                  <option value="6" >공조기-06</option>
+                  <option value="7" >공조기-07</option>
+				  <option value="8" >공조기-08</option>
             </select>
-            <span class="fac_use">클린룸 : -</span>
-            <span class="fac_loc">설치장소 : -</span>
+            <!-- <span class="fac_use">클린룸 : -</span>
+            <span class="fac_loc">설치장소 : -</span> -->
             <div class="temp_form">
               <label for="temp_date">조회일자</label>
-              <input type="date" id="temp_date" min="2022-08-01" max="2022-10-25" />
+              <input type="date" id="temp_date" min="2010-01-11" max="2011-06-05" />
               <button type="button">검색</button>
             </div>
           </div>
           <div class="temp_chart">
 						<div class="temp_chart-container position-relative">
 							<div id="tooltip">
-								<div class="tooltipDate">2022년 11월 2일 00시 00분</div>
-								<div class="tooltipSet tooltip_line"><span class="tooltipTitle set">설정온도</span>&nbsp;:&nbsp;<span class="tooltipValue set">15.3 ℃</span></div>
-								<div class="tooltipSup tooltip_line"><span class="tooltipTitle sup">급기온도</span>&nbsp;:&nbsp;<span class="tooltipValue sup">21.5 ℃</span></div>
-								<div class="tooltipRet tooltip_line"><span class="tooltipTitle ret">환기온도</span>&nbsp;:&nbsp;<span class="tooltipValue ret">15.3 ℃</span></div>
-								<div class="tooltipOut tooltip_line"><span class="tooltipTitle out">외기온도</span>&nbsp;:&nbsp;<span class="tooltipValue out">21.5 ℃</span></div>
+								<div class="tooltipDate">2011년 06월 05일 00시 00분</div>
+								<div class="tooltipSet tooltip_line"><span class="tooltipTitle set">급기온도</span>&nbsp;:&nbsp;<span class="tooltipValue set">15.3 ℃</span></div>
+								<div class="tooltipSup tooltip_line"><span class="tooltipTitle sup">외기온도</span>&nbsp;:&nbsp;<span class="tooltipValue sup">21.5 ℃</span></div>
+								<div class="tooltipRet tooltip_line"><span class="tooltipTitle ret">혼합온도</span>&nbsp;:&nbsp;<span class="tooltipValue ret">15.3 ℃</span></div>
+								<div class="tooltipOut tooltip_line"><span class="tooltipTitle out">환기온도</span>&nbsp;:&nbsp;<span class="tooltipValue out">21.5 ℃</span></div>
 							</div>
 							<div id="temp_chart">
 							</div>

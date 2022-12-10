@@ -304,7 +304,7 @@ function ahuTempCall() {
 
   // api 호출
   $.ajax({
-    url: `http://${ip}:${port}${ahuTempAddress}`,
+    url: `http://${ip}:${port}${AHU_TEMP}`,
     method: "GET",
     dataType: "json",
     data: {

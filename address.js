@@ -30,7 +30,11 @@ const AHU_TOTAL_POEWR11 = "/GetAhuTotalPowerHourly?runDate=";
 // 시간별 전력 소비량
 const AHU_TOTAL_POEWR = "/GetAhuTotalPowerHourly";
 
+// 일별 전력 소비량
 const AHU_DAILY_POWER = "/GetAhuTotalPowerDaily";
+
+// 공조기 온도 트렌드
+const AHU_TEMP = "/GetAhuTempData";
 
 // DB IP = 43.200.196.117
 // user = root
