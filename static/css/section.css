@@ -260,9 +260,8 @@
 }
 
 .dashboard-box_ahu {
-  width: 24.23857868020305%;
-  height: 400px;
-  width: 385px;
+  width: 50%;
+  height: 380px;
   background-color: #FFF;
   border-radius: 8px;
   margin-top: 16px;
@@ -387,8 +386,10 @@
 /* temp svg_ahu */
 .svg_box_ahu {
   margin-top: 20px;
-  display: inline-flex;
+  display:inline-flex;
   flex-flow: row wrap;
+  width: 120;
+  height: 200;
   /* align-items: center; */
   justify-content: center;
 }
@@ -449,7 +450,7 @@
 /* temp svg */
 .svg_box {
   margin-top: 20px;
-  display: inline-flex;
+  display: flex;
   align-content: center;
   /* align-items: center; */
   justify-content: center;
