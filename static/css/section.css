@@ -259,6 +259,17 @@
   flex-wrap: wrap;
 }
 
+.dashboard-box_ahu {
+  width: 24.23857868020305%;
+  height: 400px;
+  width: 400px;
+  background-color: #FFF;
+  border-radius: 8px;
+  margin-top: 16px;
+  box-shadow: 0 0 6px rgba(0,0,0,.04);
+  padding: 16px;
+}
+
 .dashboard-box {
   width: 24.23857868020305%;
   height: 245px;
@@ -373,10 +384,73 @@
   }
 }
 
+/* temp svg_ahu */
+.svg_box_ahu {
+  margin-top: 20px;
+  display: inline-flex;
+  flex-flow: row wrap;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.svg_box_ahu svg {
+  transform: rotate(180deg);
+  pointer-events: none;
+}
+
+.svg_box_ahu .svg_sup_box,
+.svg_box_ahu .svg_set_box {
+  position: relative;
+}
+
+.svg_box_ahu .temp_title,
+.svg_box_ahu .temp_value {
+  position: absolute;
+  white-space: nowrap;
+}
+
+.svg_box_ahu .temp_title {
+  left: 50%;
+  bottom: 50%;
+  transform: translateX(-50%);
+}
+
+.svg_box_ahu .temp_value {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 35%;
+}
+
+.svg_box_ahu .svg_bg {
+  fill: none;
+  stroke: #F4F5F5;
+  stroke-width: 58;
+  stroke-miterlimit: 10;
+  stroke-dasharray: 693.2581,693.2581;
+}
+
+.svg_box_ahu .svg_sup,
+.svg_box_ahu .svg_set {
+  fill: none;
+  stroke-width: 58;
+  stroke-miterlimit: 10; 
+  transition: stroke-dasharray 0.7s ease;
+}
+
+.svg_box_ahu .svg_sup {
+  stroke: #4A7EF9;
+}
+.svg_box_ahu .svg_set {
+  stroke: #FF3434;
+}
+
+
+
 /* temp svg */
 .svg_box {
   margin-top: 20px;
-  display: flex;
+  display: inline-flex;
+  align-content: center;
   /* align-items: center; */
   justify-content: center;
 }
