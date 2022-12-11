@@ -497,7 +497,7 @@ function boilerTempCall() {
 }
 
 // boiler 가스 호출
-function boilerGasCall() {
+function boilerGasTempCall() {
   // 날짜 선택하지 않았을 시, 선택하라는 메시지 띄우기
   if ($("#temp_date").val() == "") {
     toastr.warning("조회일자를 선택해주세요", "error");
