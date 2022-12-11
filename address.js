@@ -43,7 +43,10 @@ const BOILER_POWER = "/GetBoilerPowerData";
 const CHILER_POWER = "/GetChillerPowerData";
 
 // 보일러 가스 데이터
-const BOILER_GAS ="/GetBoilerGasData"
+const BOILER_GAS = "/GetBoilerGasData";
+
+// 대시보드 공조기 데이터
+const DASH_AHU = "/GetAhuNowTempData";
 
 // DB IP = 43.200.196.117
 // user = root

@@ -3,131 +3,281 @@ function update(a) {
   const maxValue = 693.2581;
 
   // ahu-01
-  $(".ahu-01 .svg_sup").attr(
+  $(".ahu-01 .svg_sat").attr(
     "stroke-dasharray",
     (maxValue * Number(a.ahu01_sat)) / 100 + ", 1400"
   );
-  $(".ahu-01 .svg_set").attr(
+  $(".ahu-01 .svg_oat").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu01_out)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu01_oat)) / 100 + ", 1400"
   );
-  $(".ahu-01 .svg_sup_box .temp_value").html(
+  $(".ahu-01 .svg_mat").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.ahu01_mat)) / 100 + ", 1400"
+  );
+  $(".ahu-01 .svg_rat").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.ahu01_rat)) / 100 + ", 1400"
+  );
+  $(".ahu-01 .svg_sat_box .temp_value").html(
     Number(a.ahu01_sat).toFixed(1) + " ℃"
   );
-  $(".ahu-01 .svg_set_box .temp_value").html(
-    Number(a.ahu01_out).toFixed(1) + " ℃"
+  $(".ahu-01 .svg_oat_box .temp_value").html(
+    Number(a.ahu01_oat).toFixed(1) + " ℃"
+  );
+  $(".ahu-01 .svg_mat_box .temp_value").html(
+    Number(a.ahu01_mat).toFixed(1) + " ℃"
+  );
+  $(".ahu-01 .svg_rat_box .temp_value").html(
+    Number(a.ahu01_rat).toFixed(1) + " ℃"
   );
 
   // ahu-02
-  $(".ahu-02 .svg_sup").attr(
+  $(".ahu-02 .svg_sat").attr(
     "stroke-dasharray",
     (maxValue * Number(a.ahu02_sat)) / 100 + ", 1400"
   );
-  $(".ahu-02 .svg_set").attr(
+  $(".ahu-02 .svg_oat").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu02_out)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu02_oat)) / 100 + ", 1400"
   );
-  $(".ahu-02 .svg_sup_box .temp_value").html(
+  $(".ahu-02 .svg_mat").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.ahu02_mat)) / 100 + ", 1400"
+  );
+  $(".ahu-02 .svg_rat").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.ahu02_rat)) / 100 + ", 1400"
+  );
+  $(".ahu-02 .svg_sat_box .temp_value").html(
     Number(a.ahu02_sat).toFixed(1) + " ℃"
   );
-  $(".ahu-02 .svg_set_box .temp_value").html(
-    Number(a.ahu02_out).toFixed(1) + " ℃"
+  $(".ahu-02 .svg_oat_box .temp_value").html(
+    Number(a.ahu02_oat).toFixed(1) + " ℃"
+  );
+  $(".ahu-02 .svg_mat_box .temp_value").html(
+    Number(a.ahu02_mat).toFixed(1) + " ℃"
+  );
+  $(".ahu-02 .svg_rat_box .temp_value").html(
+    Number(a.ahu02_rat).toFixed(1) + " ℃"
   );
 
   // ahu-03
-  $(".ahu-03 .svg_sup").attr(
+  $(".ahu-03 .svg_sat").attr(
     "stroke-dasharray",
     (maxValue * Number(a.ahu03_sat)) / 100 + ", 1400"
   );
-  $(".ahu-03 .svg_set").attr(
+  $(".ahu-03 .svg_oat").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu03_out)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu03_oat)) / 100 + ", 1400"
   );
-  $(".ahu-03 .svg_sup_box .temp_value").html(
+  $(".ahu-03 .svg_mat").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.ahu03_mat)) / 100 + ", 1400"
+  );
+  $(".ahu-03 .svg_rat").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.ahu03_rat)) / 100 + ", 1400"
+  );
+  $(".ahu-03 .svg_sat_box .temp_value").html(
     Number(a.ahu03_sat).toFixed(1) + " ℃"
   );
-  $(".ahu-03 .svg_set_box .temp_value").html(
-    Number(a.ahu03_out).toFixed(1) + " ℃"
+  $(".ahu-03 .svg_oat_box .temp_value").html(
+    Number(a.ahu03_oat).toFixed(1) + " ℃"
+  );
+  $(".ahu-03 .svg_mat_box .temp_value").html(
+    Number(a.ahu03_mat).toFixed(1) + " ℃"
+  );
+  $(".ahu-03 .svg_rat_box .temp_value").html(
+    Number(a.ahu03_rat).toFixed(1) + " ℃"
   );
 
   // ahu-04
-  $(".ahu-04 .svg_sup").attr(
+  $(".ahu-04 .svg_sat").attr(
     "stroke-dasharray",
     (maxValue * Number(a.ahu04_sat)) / 100 + ", 1400"
   );
-  $(".ahu-04 .svg_set").attr(
+  $(".ahu-04 .svg_oat").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu04_out)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu04_oat)) / 100 + ", 1400"
   );
-  $(".ahu-04 .svg_sup_box .temp_value").html(
+  $(".ahu-04 .svg_mat").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.ahu04_mat)) / 100 + ", 1400"
+  );
+  $(".ahu-04 .svg_rat").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.ahu04_rat)) / 100 + ", 1400"
+  );
+  $(".ahu-04 .svg_sat_box .temp_value").html(
     Number(a.ahu04_sat).toFixed(1) + " ℃"
   );
-  $(".ahu-04 .svg_set_box .temp_value").html(
-    Number(a.ahu04_out).toFixed(1) + " ℃"
+  $(".ahu-04 .svg_oat_box .temp_value").html(
+    Number(a.ahu04_oat).toFixed(1) + " ℃"
+  );
+  $(".ahu-04 .svg_mat_box .temp_value").html(
+    Number(a.ahu04_mat).toFixed(1) + " ℃"
+  );
+  $(".ahu-04 .svg_rat_box .temp_value").html(
+    Number(a.ahu04_rat).toFixed(1) + " ℃"
   );
 
   // ahu-05
-  $(".ahu-04b .svg_sup").attr(
+  $(".ahu-05 .svg_sat").attr(
     "stroke-dasharray",
     (maxValue * Number(a.ahu05_sat)) / 100 + ", 1400"
   );
-  $(".ahu-04b .svg_set").attr(
+  $(".ahu-05 .svg_oat").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu05_out)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu05_oat)) / 100 + ", 1400"
   );
-  $(".ahu-04b .svg_sup_box .temp_value").html(
+  $(".ahu-05 .svg_mat").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.ahu05_mat)) / 100 + ", 1400"
+  );
+  $(".ahu-05 .svg_rat").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.ahu05_rat)) / 100 + ", 1400"
+  );
+  $(".ahu-05 .svg_sat_box .temp_value").html(
     Number(a.ahu05_sat).toFixed(1) + " ℃"
   );
-  $(".ahu-04b .svg_set_box .temp_value").html(
-    Number(a.ahu05_out).toFixed(1) + " ℃"
+  $(".ahu-05 .svg_oat_box .temp_value").html(
+    Number(a.ahu05_oat).toFixed(1) + " ℃"
+  );
+  $(".ahu-05 .svg_mat_box .temp_value").html(
+    Number(a.ahu05_mat).toFixed(1) + " ℃"
+  );
+  $(".ahu-05 .svg_rat_box .temp_value").html(
+    Number(a.ahu05_rat).toFixed(1) + " ℃"
   );
 
   // ahu-06
-  $(".ahu-05 .svg_sup").attr(
+  $(".ahu-06 .svg_sat").attr(
     "stroke-dasharray",
     (maxValue * Number(a.ahu06_sat)) / 100 + ", 1400"
   );
-  $(".ahu-05 .svg_set").attr(
+  $(".ahu-06 .svg_oat").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu06_out)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu06_oat)) / 100 + ", 1400"
   );
-  $(".ahu-05 .svg_sup_box .temp_value").html(
+  $(".ahu-06 .svg_mat").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.ahu06_mat)) / 100 + ", 1400"
+  );
+  $(".ahu-06 .svg_rat").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.ahu06_rat)) / 100 + ", 1400"
+  );
+  $(".ahu-06 .svg_sat_box .temp_value").html(
     Number(a.ahu06_sat).toFixed(1) + " ℃"
   );
-  $(".ahu-05 .svg_set_box .temp_value").html(
-    Number(a.ahu06_out).toFixed(1) + " ℃"
+  $(".ahu-06 .svg_oat_box .temp_value").html(
+    Number(a.ahu06_oat).toFixed(1) + " ℃"
+  );
+  $(".ahu-06 .svg_mat_box .temp_value").html(
+    Number(a.ahu06_mat).toFixed(1) + " ℃"
+  );
+  $(".ahu-06 .svg_rat_box .temp_value").html(
+    Number(a.ahu06_rat).toFixed(1) + " ℃"
   );
 
   // ahu-07
-  $(".ahu-06 .svg_sup").attr(
+  $(".ahu-07 .svg_sat").attr(
     "stroke-dasharray",
     (maxValue * Number(a.ahu07_sat)) / 100 + ", 1400"
   );
-  $(".ahu-06 .svg_set").attr(
+  $(".ahu-07 .svg_oat").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu07_out)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu07_oat)) / 100 + ", 1400"
   );
-  $(".ahu-06 .svg_sup_box .temp_value").html(
+  $(".ahu-07 .svg_mat").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.ahu07_mat)) / 100 + ", 1400"
+  );
+  $(".ahu-07 .svg_rat").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.ahu07_rat)) / 100 + ", 1400"
+  );
+  $(".ahu-07 .svg_sat_box .temp_value").html(
     Number(a.ahu07_sat).toFixed(1) + " ℃"
   );
-  $(".ahu-06 .svg_set_box .temp_value").html(
-    Number(a.ahu07_out).toFixed(1) + " ℃"
+  $(".ahu-07 .svg_oat_box .temp_value").html(
+    Number(a.ahu07_oat).toFixed(1) + " ℃"
+  );
+  $(".ahu-07 .svg_mat_box .temp_value").html(
+    Number(a.ahu07_mat).toFixed(1) + " ℃"
+  );
+  $(".ahu-07 .svg_rat_box .temp_value").html(
+    Number(a.ahu07_rat).toFixed(1) + " ℃"
   );
 
   // ahu-08
-  $(".ahu-07 .svg_sup").attr(
+  $(".ahu-08 .svg_sat").attr(
     "stroke-dasharray",
     (maxValue * Number(a.ahu08_sat)) / 100 + ", 1400"
   );
-  $(".ahu-07 .svg_set").attr(
+  $(".ahu-08 .svg_oat").attr(
     "stroke-dasharray",
-    (maxValue * Number(a.ahu08_out)) / 100 + ", 1400"
+    (maxValue * Number(a.ahu08_oat)) / 100 + ", 1400"
   );
-  $(".ahu-07 .svg_sup_box .temp_value").html(
+  $(".ahu-08 .svg_mat").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.ahu08_mat)) / 100 + ", 1400"
+  );
+  $(".ahu-08 .svg_rat").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.ahu08_rat)) / 100 + ", 1400"
+  );
+  $(".ahu-08 .svg_sat_box .temp_value").html(
     Number(a.ahu08_sat).toFixed(1) + " ℃"
   );
-  $(".ahu-07 .svg_set_box .temp_value").html(
-    Number(a.ahu08_out).toFixed(1) + " ℃"
+  $(".ahu-08 .svg_oat_box .temp_value").html(
+    Number(a.ahu08_oat).toFixed(1) + " ℃"
+  );
+  $(".ahu-08 .svg_mat_box .temp_value").html(
+    Number(a.ahu08_mat).toFixed(1) + " ℃"
+  );
+  $(".ahu-08 .svg_rat_box .temp_value").html(
+    Number(a.ahu08_rat).toFixed(1) + " ℃"
+  );
+}
+
+// 칠러 실시간 업데이트
+function chilerUpdate(a) {
+  const maxValue = 693.2581;
+
+  // chiler-01
+  $(".chiler-01 .svg_sat").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.chiler01_cwst)) / 100 + ", 1400"
+  );
+  $(".chiler-01 .svg_oat").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.chiler01_pow)) / 100 + ", 1400"
+  );
+
+  $(".chiler-01 .svg_sat_box .temp_value").html(
+    Number(a.chiler01_cwst).toFixed(1) + " ℃"
+  );
+  $(".chiler-01 .svg_oat_box .temp_value").html(
+    Number(a.chiler01_pow).toFixed(1) + " ℃"
+  );
+
+  // chiler-02
+  $(".ahu-02 .svg_sup").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.chiler02_cwst)) / 100 + ", 1400"
+  );
+  $(".ahu-02 .svg_set").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.chiler02_pow)) / 100 + ", 1400"
+  );
+  $(".ahu-02 .svg_sup_box .temp_value").html(
+    Number(a.chiler02_cwst).toFixed(1) + " ℃"
+  );
+  $(".ahu-02 .svg_set_box .temp_value").html(
+    Number(a.chiler02_pow).toFixed(1) + " ℃"
   );
 }
 
@@ -1613,7 +1763,10 @@ function boilerGasChart(a) {
   const svg = d3
     .select("#temp_chart")
     .append("svg")
-    .style("width", boilerGasWidth + boilerGasMargin.left + boilerGasMargin.right)
+    .style(
+      "width",
+      boilerGasWidth + boilerGasMargin.left + boilerGasMargin.right
+    )
     .style("height", boilerGasHeight)
     .style("background", "#fff");
 
@@ -1623,7 +1776,9 @@ function boilerGasChart(a) {
     .attr("class", "x axis xAxis")
     .attr(
       "transform",
-      `translate(${boilerGasMargin.left}, ${boilerGasHeight - boilerGasMargin.bottom})`
+      `translate(${boilerGasMargin.left}, ${
+        boilerGasHeight - boilerGasMargin.bottom
+      })`
     )
     .call(
       d3
@@ -1639,7 +1794,10 @@ function boilerGasChart(a) {
     .append("g")
     .attr("class", "y axis yAxis")
     .call(d3.axisLeft(y).ticks(5))
-    .attr("transform", `translate(${boilerGasMargin.left},${boilerGasMargin.right})`)
+    .attr(
+      "transform",
+      `translate(${boilerGasMargin.left},${boilerGasMargin.right})`
+    )
     .call((g) => g.select(".domain").remove())
     .call((g) =>
       g
@@ -1669,7 +1827,10 @@ function boilerGasChart(a) {
     .append("path")
     .data([a])
     .attr("class", "line1")
-    .attr("transform", `translate(${boilerGasMargin.left}, ${boilerGasMargin.right})`)
+    .attr(
+      "transform",
+      `translate(${boilerGasMargin.left}, ${boilerGasMargin.right})`
+    )
     .attr("d", valueline)
     .style("fill", "none")
     .style("stroke-width", 2)
@@ -1739,7 +1900,9 @@ function boilerGasChart(a) {
         .attr("opacity", "0.5")
         .attr(
           "transform",
-          `translate(${x(dDate) + boilerGasMargin.left}, ${boilerGasMargin.bottom})`
+          `translate(${x(dDate) + boilerGasMargin.left}, ${
+            boilerGasMargin.bottom
+          })`
         );
 
       // 칠러 전력 circle 위치 변경

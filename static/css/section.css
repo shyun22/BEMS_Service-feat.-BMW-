@@ -18,9 +18,9 @@
 
 .container_box {
   border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0,0,0,.04);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.04);
   overflow: hidden;
-  background: #FFF;
+  background: #fff;
 
   border: 1px solid #ddd;
 }
@@ -38,7 +38,7 @@
 }
 
 .table-container.border {
-  border: 1px solid #DDD;
+  border: 1px solid #ddd;
 }
 
 .table-container table {
@@ -49,7 +49,7 @@
 .table-container th,
 .table-container tr,
 .table-container td {
-  border: 1px solid #EEE;
+  border: 1px solid #eee;
 }
 
 .table-container th,
@@ -80,7 +80,7 @@
 .search_box input {
   width: 140px;
   height: 28px;
-  border: 1px solid #DDD;
+  border: 1px solid #ddd;
   border-radius: 4px;
   color: inherit;
   padding: 0 8px;
@@ -92,11 +92,11 @@
 }
 
 .search_box button {
-  background-color: #1E6CEB;
+  background-color: #1e6ceb;
   width: 80px;
   border-radius: 4px;
   height: 28px;
-  color: #FFF;
+  color: #fff;
   margin-left: 12px;
 }
 
@@ -110,7 +110,7 @@
 .search_box .trend_box button {
   margin-left: 4px;
   background-color: transparent;
-  border: 1px solid #DDD;
+  border: 1px solid #ddd;
   color: inherit;
   font-weight: 500;
   width: auto;
@@ -120,9 +120,9 @@
 }
 
 .search_box .trend_box button:hover {
-  background-color: #1E6CEB;
-  border: 1px solid #1E6CEB;
-  color: #FFF;
+  background-color: #1e6ceb;
+  border: 1px solid #1e6ceb;
+  color: #fff;
 }
 
 .download_box {
@@ -158,7 +158,7 @@
   display: block;
   width: 0;
   height: 2px;
-  background-color: #1E6CEB;
+  background-color: #1e6ceb;
 
   position: absolute;
   left: 50%;
@@ -174,11 +174,11 @@
 }
 
 .download_box li a:hover {
-  color: #1E6CEB;
+  color: #1e6ceb;
 }
 
 .download_box li a:hover .feather {
-  color: #1E6CEB;
+  color: #1e6ceb;
 }
 
 .update_text {
@@ -210,7 +210,7 @@
 }
 
 .progress-bar {
-  position:absolute;
+  position: absolute;
   width: 100%;
   height: 2px;
   left: 0;
@@ -222,7 +222,7 @@
 }
 
 .progress-bar svg path {
-  stroke: #1E6CEB !important;
+  stroke: #1e6ceb !important;
 }
 
 /* fems data */
@@ -262,20 +262,20 @@
 .dashboard-box_ahu {
   width: 50%;
   height: 380px;
-  background-color: #FFF;
+  background-color: #fff;
   border-radius: 8px;
   margin-top: 16px;
-  box-shadow: 0 0 6px rgba(0,0,0,.04);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.04);
   padding: 16px;
 }
 
 .dashboard-box {
   width: 24.23857868020305%;
-  height: 245px;
-  background-color: #FFF;
+  height: 450px;
+  background-color: #fff;
   border-radius: 8px;
   margin-top: 16px;
-  box-shadow: 0 0 6px rgba(0,0,0,.04);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.04);
   padding: 16px;
 }
 
@@ -328,7 +328,16 @@
 
   border-radius: 12px;
 
-  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
   background-size: 5px 5px;
 
   animation: 1s linear infinite progress-stripes;
@@ -341,11 +350,11 @@
 }
 
 .temp_progress.sup {
-  background-color: #4A7EF9;
+  background-color: #4a7ef9;
 }
 
 .temp_progress.set {
-  background-color: #FF3434;
+  background-color: #ff3434;
 }
 
 @media screen and (max-width: 1880px) {
@@ -353,7 +362,7 @@
     width: 32.5%;
     max-width: none;
   }
-  
+
   .empty {
     width: 32.5%;
     max-width: none;
@@ -365,7 +374,7 @@
     width: 49.5%;
     max-width: none;
   }
-  
+
   .empty {
     width: 49.5%;
     max-width: none;
@@ -377,7 +386,7 @@
     width: 100%;
     max-width: none;
   }
-  
+
   .empty {
     display: none;
   }
@@ -386,7 +395,7 @@
 /* temp svg_ahu */
 .svg_box_ahu {
   margin-top: 20px;
-  display:inline-flex;
+  display: inline-flex;
   flex-flow: row wrap;
   width: 120;
   height: 200;
@@ -399,8 +408,10 @@
   pointer-events: none;
 }
 
-.svg_box_ahu .svg_sup_box,
-.svg_box_ahu .svg_set_box {
+.svg_box_ahu .svg_sat_box,
+.svg_box_ahu .svg_oat_box,
+.svg_box_ahu .svg_mat_box,
+.svg_box_ahu .svg_rat_box {
   position: relative;
 }
 
@@ -424,28 +435,34 @@
 
 .svg_box_ahu .svg_bg {
   fill: none;
-  stroke: #F4F5F5;
+  stroke: #f4f5f5;
   stroke-width: 58;
   stroke-miterlimit: 10;
-  stroke-dasharray: 693.2581,693.2581;
+  stroke-dasharray: 693.2581, 693.2581;
 }
 
-.svg_box_ahu .svg_sup,
-.svg_box_ahu .svg_set {
+.svg_box_ahu .svg_sat,
+.svg_box_ahu .svg_oat,
+.svg_box_ahu .svg_mat,
+.svg_box_ahu .svg_rat {
   fill: none;
   stroke-width: 58;
-  stroke-miterlimit: 10; 
+  stroke-miterlimit: 10;
   transition: stroke-dasharray 0.7s ease;
 }
 
-.svg_box_ahu .svg_sup {
-  stroke: #4A7EF9;
+.svg_box_ahu .svg_sat {
+  stroke: #4a7ef9;
 }
-.svg_box_ahu .svg_set {
-  stroke: #FF3434;
+.svg_box_ahu .svg_oat {
+  stroke: #ff3434;
 }
-
-
+.svg_box_ahu .svg_mat {
+  stroke: #4a7ef9;
+}
+.svg_box_ahu .svg_rat {
+  stroke: #ff3434;
+}
 
 /* temp svg */
 .svg_box {
@@ -461,8 +478,10 @@
   pointer-events: none;
 }
 
-.svg_box .svg_sup_box,
-.svg_box .svg_set_box {
+.svg_box .svg_sat_box,
+.svg_box .svg_oat_box,
+.svg_box .svg_mat_box,
+.svg_box .svg_rat_box {
   position: relative;
 }
 
@@ -486,33 +505,41 @@
 
 .svg_box .svg_bg {
   fill: none;
-  stroke: #F4F5F5;
+  stroke: #f4f5f5;
   stroke-width: 58;
   stroke-miterlimit: 10;
-  stroke-dasharray: 693.2581,693.2581;
+  stroke-dasharray: 693.2581, 693.2581;
 }
 
-.svg_box .svg_sup,
-.svg_box .svg_set {
+.svg_box .svg_sat,
+.svg_box .svg_oat,
+.svg_box .svg_mat,
+.svg_box .svg_rat {
   fill: none;
   stroke-width: 58;
-  stroke-miterlimit: 10; 
+  stroke-miterlimit: 10;
   transition: stroke-dasharray 0.7s ease;
 }
 
-.svg_box .svg_sup {
-  stroke: #4A7EF9;
+.svg_box .svg_sat {
+  stroke: #4a7ef9;
 }
-.svg_box .svg_set {
-  stroke: #FF3434;
+.svg_box .svg_oat {
+  stroke: #ff3434;
+}
+.svg_box .svg_mat {
+  stroke: #4a7ef9;
+}
+.svg_box .svg_rat {
+  stroke: #ff3434;
 }
 
 /* temp */
 .temp_search {
   height: 120px;
-  background-color: #FFF;
+  background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 0 6px rgba(0,0,0,.04);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.04);
   display: flex;
   align-items: center;
   padding: 0 32px;
@@ -522,7 +549,7 @@
   width: 163px;
   font-size: 24px;
   font-weight: 700;
-  color: #1E6CEB;
+  color: #1e6ceb;
   border: none;
   outline: none;
   cursor: pointer;
@@ -532,7 +559,7 @@
   -moz-appearance: none;
   appearance: none;
 
-  background: url('/static/images/arrow.png') no-repeat 98% 50%/16px auto;
+  background: url("/static/images/arrow.png") no-repeat 98% 50%/16px auto;
 }
 
 .temp_search select option {
@@ -562,7 +589,7 @@
 
   display: inline-block;
   content: "";
-  background-color: #5C9AFE;
+  background-color: #5c9afe;
   margin-right: 12px;
 }
 
@@ -592,8 +619,8 @@
 .temp_form button {
   width: 100px;
   height: 32px;
-  background-color: #1E6CEB;
-  color: #FFF;
+  background-color: #1e6ceb;
+  color: #fff;
   border-radius: 4px;
 
   transition: background-color 0.5s;
@@ -641,9 +668,9 @@
 .temp_chart {
   margin-top: 16px;
   height: 632px;
-  background-color: #FFF;
+  background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 0 6px rgba(0,0,0,.04);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.04);
   padding: 16px;
 }
 
@@ -660,14 +687,13 @@
   border-radius: 4px;
 }
 
-
 /* power */
 .power_container {
   margin-top: 16px;
   height: 768px;
   border-radius: 8px;
-  background-color: #FFF;
-  box-shadow: 0 0 6px rgba(0,0,0,.04);
+  background-color: #fff;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.04);
   padding: 16px;
 }
 
@@ -697,8 +723,8 @@
 .power_search button {
   width: 100px;
   height: 32px;
-  background-color: #1E6CEB;
-  color: #FFF;
+  background-color: #1e6ceb;
+  color: #fff;
   border-radius: 4px;
 
   transition: background-color 0.5s;
@@ -728,7 +754,6 @@
   border-bottom: 1px solid #ddd;
 }
 
-
 /* tooltip */
 #temp_chart,
 #chart_container:not(.day) {
@@ -738,7 +763,7 @@
 
 #tooltip {
   position: absolute;
-  background-color: #FFF;
+  background-color: #fff;
   border-radius: 4px;
   border: 1px solid #ddd;
   font-size: 13px;
@@ -752,7 +777,7 @@
   opacity: 0;
 
   pointer-events: none;
-  
+
   z-index: 999;
 }
 
@@ -775,15 +800,25 @@
 }
 
 .tooltipTitle.set,
-.label.set { color: #FF3434; }
+.label.set {
+  color: #ff3434;
+}
 .tooltipTitle.sup,
-.label.sup { color: #4A7EF9; }
+.label.sup {
+  color: #4a7ef9;
+}
 .tooltipTitle.ret,
-.label.ret { color: orange; }
+.label.ret {
+  color: orange;
+}
 .tooltipTitle.out,
-.label.out { color: rgb(105, 199, 168); }
+.label.out {
+  color: rgb(105, 199, 168);
+}
 .tooltipTitle.kW,
-.label.kW { color: #FFB30D; }
+.label.kW {
+  color: #ffb30d;
+}
 
 .tooltipValue {
   font-weight: 500;
@@ -805,7 +840,9 @@
 }
 
 text {
-  font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont,
+    system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
+    "Noto Sans KR", "Malgun Gothic", sans-serif;
   letter-spacing: -0.05em;
   color: #282828;
   -webkit-font-smoothing: antialiased;
@@ -833,21 +870,21 @@ text {
   align-items: center;
 }
 
-.labels>div {
+.labels > div {
   margin-left: 12px;
   display: flex;
   align-items: center;
 }
 
-.labels>div input {
+.labels > div input {
   display: none;
 }
 
-.labels>div label {
+.labels > div label {
   cursor: pointer;
 }
 
-.labels>div label.off {
+.labels > div label.off {
   color: #ccc;
   text-decoration: line-through;
 }
@@ -861,11 +898,21 @@ text {
   margin-right: 8px;
 }
 
-.label_box.set { background-color: #FF3434; }
-.label_box.sup { background-color: #4A7EF9; }
-.label_box.ret { background-color: orange; }
-.label_box.out { background-color: rgb(105, 199, 168); }
-.label_box.kW { background-color: #FFB30D; }
+.label_box.set {
+  background-color: #ff3434;
+}
+.label_box.sup {
+  background-color: #4a7ef9;
+}
+.label_box.ret {
+  background-color: orange;
+}
+.label_box.out {
+  background-color: rgb(105, 199, 168);
+}
+.label_box.kW {
+  background-color: #ffb30d;
+}
 
 .label_box.off {
   background-color: #ccc !important;

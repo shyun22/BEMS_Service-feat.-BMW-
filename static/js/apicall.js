@@ -28,10 +28,10 @@ function updateCall() {
 
     // api 호출
     $.ajax({
-      url: `http://${ip}:${port}${AHU_TEMP}`,
+      url: `http://${ip}:${port}${DASH_AHU}`,
       method: "GET",
       dataType: "json",
-      data: { runDate: `20100111${hour}${minutes}` },
+      data: { runDate: `201101110000` },
     })
       .done((data) => {
         // 데이터 정리
@@ -40,49 +40,49 @@ function updateCall() {
           switch (key.machine_num) {
             case "1":
               convertData.ahu01_sat = key.ahu_sat;
-              convertData.ahu01_out = key.ahu_out;
+              convertData.ahu01_oat = key.ahu_oat;
               convertData.ahu01_mat = key.ahu_mat;
               convertData.ahu01_rat = key.ahu_rat;
               break;
             case "2":
               convertData.ahu02_sat = key.ahu_sat;
-              convertData.ahu02_out = key.ahu_out;
+              convertData.ahu02_oat = key.ahu_oat;
               convertData.ahu02_mat = key.ahu_mat;
               convertData.ahu02_rat = key.ahu_rat;
               break;
             case "3":
               convertData.ahu03_sat = key.ahu_sat;
-              convertData.ahu03_out = key.ahu_out;
+              convertData.ahu03_oat = key.ahu_oat;
               convertData.ahu03_mat = key.ahu_mat;
               convertData.ahu03_rat = key.ahu_rat;
               break;
             case "4":
               convertData.ahu04_sat = key.ahu_sat;
-              convertData.ahu04_out = key.ahu_out;
+              convertData.ahu04_oat = key.ahu_oat;
               convertData.ahu04_mat = key.ahu_mat;
               convertData.ahu04_rat = key.ahu_rat;
               break;
             case "5":
               convertData.ahu05_sat = key.ahu_sat;
-              convertData.ahu05_out = key.ahu_out;
+              convertData.ahu05_oat = key.ahu_oat;
               convertData.ahu05_mat = key.ahu_mat;
               convertData.ahu05_rat = key.ahu_rat;
               break;
             case "6":
               convertData.ahu06_sat = key.ahu_sat;
-              convertData.ahu06_out = key.ahu_out;
+              convertData.ahu06_oat = key.ahu_oat;
               convertData.ahu06_mat = key.ahu_mat;
               convertData.ahu06_rat = key.ahu_rat;
               break;
             case "7":
               convertData.ahu07_sat = key.ahu_sat;
-              convertData.ahu07_out = key.ahu_out;
+              convertData.ahu07_oat = key.ahu_oat;
               convertData.ahu07_mat = key.ahu_mat;
               convertData.ahu07_rat = key.ahu_rat;
               break;
             case "8":
               convertData.ahu08_sat = key.ahu_sat;
-              convertData.ahu08_out = key.ahu_out;
+              convertData.ahu08_oat = key.ahu_oat;
               convertData.ahu08_mat = key.ahu_mat;
               convertData.ahu08_rat = key.ahu_rat;
               break;
@@ -186,10 +186,10 @@ function firstUpdateCall() {
 
   // api 호출
   $.ajax({
-    url: `http://${ip}:${port}${AHU_TEMP}`,
+    url: `http://${ip}:${port}${DASH_AHU}`,
     method: "GET",
     dataType: "json",
-    data: { runDate: `20100111${hour}${near}00` },
+    data: { runDate: `201101110000` },
   })
     .done((data) => {
       // 데이터 정리
@@ -198,49 +198,49 @@ function firstUpdateCall() {
         switch (key.machine_num) {
           case "1":
             convertData.ahu01_sat = key.ahu_sat;
-            convertData.ahu01_out = key.ahu_out;
+            convertData.ahu01_oat = key.ahu_oat;
             convertData.ahu01_mat = key.ahu_mat;
             convertData.ahu01_rat = key.ahu_rat;
             break;
           case "2":
             convertData.ahu02_sat = key.ahu_sat;
-            convertData.ahu02_out = key.ahu_out;
+            convertData.ahu02_oat = key.ahu_oat;
             convertData.ahu02_mat = key.ahu_mat;
             convertData.ahu02_rat = key.ahu_rat;
             break;
           case "3":
             convertData.ahu03_sat = key.ahu_sat;
-            convertData.ahu03_out = key.ahu_out;
+            convertData.ahu03_oat = key.ahu_oat;
             convertData.ahu03_mat = key.ahu_mat;
             convertData.ahu03_rat = key.ahu_rat;
             break;
           case "4":
             convertData.ahu04_sat = key.ahu_sat;
-            convertData.ahu04_out = key.ahu_out;
+            convertData.ahu04_oat = key.ahu_oat;
             convertData.ahu04_mat = key.ahu_mat;
             convertData.ahu04_rat = key.ahu_rat;
             break;
           case "5":
             convertData.ahu05_sat = key.ahu_sat;
-            convertData.ahu05_out = key.ahu_out;
+            convertData.ahu05_oat = key.ahu_oat;
             convertData.ahu05_mat = key.ahu_mat;
             convertData.ahu05_rat = key.ahu_rat;
             break;
           case "6":
             convertData.ahu06_sat = key.ahu_sat;
-            convertData.ahu06_out = key.ahu_out;
+            convertData.ahu06_oat = key.ahu_oat;
             convertData.ahu06_mat = key.ahu_mat;
             convertData.ahu06_rat = key.ahu_rat;
             break;
           case "7":
             convertData.ahu07_sat = key.ahu_sat;
-            convertData.ahu07_out = key.ahu_out;
+            convertData.ahu07_oat = key.ahu_oat;
             convertData.ahu07_mat = key.ahu_mat;
             convertData.ahu07_rat = key.ahu_rat;
             break;
           case "8":
             convertData.ahu08_sat = key.ahu_sat;
-            convertData.ahu08_out = key.ahu_out;
+            convertData.ahu08_oat = key.ahu_oat;
             convertData.ahu08_mat = key.ahu_mat;
             convertData.ahu08_rat = key.ahu_rat;
             break;
@@ -248,6 +248,7 @@ function firstUpdateCall() {
             break;
         }
       });
+      console.log();
 
       update(convertData);
 
@@ -268,6 +269,8 @@ function firstUpdateCall() {
       console.log(err);
     });
 }
+
+// chiler
 
 function ahuConfigurationCall() {
   $.ajax({
