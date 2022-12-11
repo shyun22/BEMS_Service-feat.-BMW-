@@ -1281,3 +1281,269 @@ function ahuTable(a) {
       </tr>`;
   });
 }
+
+// 보일러 파워 차트 //
+
+// BOILER 전력 차트
+
+//boiler 차트 기본 설정
+let boilerMargin = { top: 80, right: 40, bottom: 40, left: 60 };
+let boilerWidth = "";
+if ($("#temp_chart").length != 0)
+  boilerWidth =
+    d3.select("#temp_chart").node().getBoundingClientRect().width -
+    boilerMargin.left -
+    boilerMargin.right;
+let boilerHeight = 356;
+
+function boilerChart(a) {
+  $("#temp_chart").html("");
+  chartArray = a;
+  chartType = "temp";
+
+  // x축 범위 설정 (금일 00시 ~ 익일 00시)
+  let today = new Date(a[0].runDateTime);
+  today.setHours(0);
+  today.setMinutes(0);
+  let tomorrow = new Date(a[0].runDateTime);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  tomorrow.setHours(0);
+  tomorrow.setMinutes(0);
+
+  // autoScale을 위한 최소값 최대값 설정
+  let maxVal = a.map((key) => {
+    var array = [Number(key.bo_pow)];
+    return Math.max(...array);
+  });
+  let minVal = a.map((key) => {
+    var array = [Number(key.bo_pow)];
+    return Math.min(...array);
+  });
+
+  maxVal = Math.max(...maxVal);
+  minVal = Math.min(...minVal);
+
+  // x축 설정
+  const x = d3.scaleTime().domain([today, tomorrow]).range([0, boilerWidth]);
+
+  // y축 설정
+  const y = d3
+    .scaleLinear()
+    .domain([minVal, maxVal])
+    .range([boilerHeight - boilerMargin.top, 0])
+    .nice();
+
+  // line 설정
+  const valueline = d3
+    .line()
+    .x((d) => {
+      return x(new Date(d.runDateTime));
+    })
+    .y((d) => {
+      return y(Number(d.bo_pow));
+    });
+
+  // 차트 틀(svg) 생성
+  const svg = d3
+    .select("#temp_chart")
+    .append("svg")
+    .style("width", boilerWidth + boilerMargin.left + boilerMargin.right)
+    .style("height", boilerHeight)
+    .style("background", "#fff");
+
+  // 차트에 x축 axis 생성
+  svg
+    .append("g")
+    .attr("class", "x axis xAxis")
+    .attr(
+      "transform",
+      `translate(${boilerMargin.left}, ${boilerHeight - boilerMargin.bottom})`
+    )
+    .call(
+      d3
+        .axisBottom(x)
+        .ticks(boilerWidth / 64.33333333333333)
+        .tickSizeOuter(0)
+        .tickFormat(d3.timeFormat("%H시"))
+    )
+    .call((g) => g.select(".domain").remove());
+
+  // 차트에 y축 axis 생성
+  svg
+    .append("g")
+    .attr("class", "y axis yAxis")
+    .call(d3.axisLeft(y).ticks(5))
+    .attr("transform", `translate(${boilerMargin.left},${boilerMargin.right})`)
+    .call((g) => g.select(".domain").remove())
+    .call((g) =>
+      g
+        .selectAll("line")
+        .attr("stroke", "#999")
+        .attr("opacity", "0.2")
+        .attr("stroke-dasharray", "3.3")
+        .attr("x2", `${boilerWidth}`)
+    )
+    .attr("x2", `${boilerWidth}`)
+    .style("stroke", "none")
+    .attr("opacity", "1")
+    .append("g")
+    .append("text")
+    .attr("class", "titleText")
+    .attr("transform", "rotate(-90)")
+    .attr("x", `${-boilerHeight + 230}`)
+    .attr("y", -36)
+    .attr("font-size", "13px")
+    .attr("font-family", "Spoqa Han Sans Neo")
+    .attr("font-anchor", "middle")
+    .attr("fill", "#282828")
+    .text("온도 (℃)");
+
+  // 차트에 라인 생성 (칠러전력)
+  const linePath = svg
+    .append("path")
+    .data([a])
+    .attr("class", "line1")
+    .attr("transform", `translate(${boilerMargin.left}, ${boilerMargin.right})`)
+    .attr("d", valueline)
+    .style("fill", "none")
+    .style("stroke-width", 2)
+    .style("stroke", "#FF3434");
+
+  // 차트에 마우스 올렸을 때 vertical line과 위치 circle 생성
+  // 차트 전체를 이동할 수 있도록 width: 100%, height: 100%의 그룹 생성
+  const focus = svg
+    .append("g")
+    .attr("class", "focus")
+    .attr("width", boilerWidth)
+    .attr("height", boilerHeight);
+
+  // vertical line 생성
+  focus
+    .append("line")
+    .attr("class", "vertical_line")
+    .attr("opacity", 0)
+    .style("stroke-dasharray", "3.3")
+    .attr("stroke-width", "2px")
+    .attr("stroke", "#999")
+    .attr("y1", 0)
+    .attr("y2", `${boilerHeight - boilerMargin.top}`);
+
+  // 칠러전력 circle 생성
+  focus
+    .append("circle")
+    .attr("class", "circle_y1")
+    .attr("opacity", 0)
+    .attr("stroke", "#FF3434")
+    .attr("fill", "white")
+    .attr("stroke-width", 2)
+    .attr("r", 4); // 반지름값
+
+  // 툴팁 이벤트 생성
+  // 차트 전체를 감싸는 투명한 박스를 생성하여 박스에 올리는 마우스 좌표를 계산하여 해당 좌표에 있는 값을 출력
+  const observerbox = svg
+    .append("rect")
+    .attr("width", boilerWidth)
+    .attr("height", boilerHeight - boilerMargin.top)
+    .attr(
+      "transform",
+      `translate(${boilerMargin.left}, ${boilerMargin.top / 2})`
+    )
+    .attr("opacity", 0)
+    .on("mousemove", function () {
+      // 마우스 위치 구하여 위치에 맞는 배열 값 구하기
+      const bisect = d3.bisector((d) => new Date(d.runDateTime)).left,
+        x99 = x.invert(d3.mouse(this)[0]),
+        i = bisect(a, x99, 1),
+        d0 = a[i - 1],
+        d1 = a[i],
+        dType = typeof a.runDateTime,
+        d =
+          dType != "undefined"
+            ? x - new Date(d0.runDateTime) > new Date(d1.runDateTime) - x99
+              ? d1
+              : d0
+            : d0;
+
+      // 날짜 값
+      const dDate = new Date(d.runDateTime);
+
+      // vertical line 위치 변경
+      focus
+        .select("line")
+        .attr("opacity", "0.5")
+        .attr(
+          "transform",
+          `translate(${x(dDate) + boilerMargin.left}, ${boilerMargin.bottom})`
+        );
+
+      // 칠러 전력 circle 위치 변경
+      focus
+        .select(".circle_y1")
+        .attr("opacity", 1)
+        .attr(
+          "transform",
+          `translate(${x(dDate) + boilerMargin.left}, ${
+            y(d.bo_pow) + boilerMargin.bottom
+          })`
+        );
+
+      // 툴팁 활성화
+      const tooltip = document.querySelector("#tooltip");
+      tooltip.style.opacity = 1;
+
+      // 툴팁 위치 설정
+      if (x(new Date(d.runDateTime)) + tooltip.offsetWidth < boilerWidth) {
+        tooltip.style.left = `${x(dDate) + 72}px`;
+      } else {
+        tooltip.style.left = `${x(dDate) - 128}px`;
+      }
+
+      // 툴팁 텍스트 작성
+      var dYears = dDate.getFullYear();
+      var dMonth = dDate.getMonth() + 1;
+      dMonth = dateParse(dMonth);
+      var dDay = dDate.getDate();
+      dDay = dateParse(dDay);
+      var dHour = dDate.getHours();
+      dHour = dateParse(dHour);
+      var dMin = dDate.getMinutes();
+      dMin = dateParse(dMin);
+
+      $(".tooltipDate").text(
+        `${dYears}년 ${dMonth}월 ${dDay}일 ${dHour}시 ${dMin}분`
+      );
+      $(".tooltipValue.set").text(`${Number(d.bo_pow).toFixed(1)} ℃`);
+    })
+    .on("mouseleave", () => {
+      // 마우스가 차트 밖으로 벗어 났을 때 focus 숨기기
+      focus.select("line").attr("opacity", 0);
+
+      focus.select(".circle_y1").attr("opacity", 0);
+
+      // 툴팁 숨기기
+      const tooltip = document.querySelector("#tooltip");
+      tooltip.style.opacity = 0;
+    });
+
+  $("#temp_chart").append(
+    `<div class="labels">
+      <div>
+        <input type="checkbox" id="set_btn" class="ahu_label_btn" data-label="set" checked />
+        <label for="set_btn" class="label_box set"></label>
+        <label for="set_btn" class="label set">보일러전력</label>
+      </div>
+    </div>`
+  );
+}
+
+// boiler 테이블
+function ahuTable(a) {
+  const table = document.querySelector(".temp-table tbody");
+  table.innerHTML = "";
+  a.forEach((e, i) => {
+    table.innerHTML += `<tr>
+      <td>${e.runDateTime}</td>
+      <td>${Number(e.bo_pow).toFixed(1)} ℃</td>
+      </tr>`;
+  });
+}

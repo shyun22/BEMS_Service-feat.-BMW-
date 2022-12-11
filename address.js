@@ -36,6 +36,9 @@ const AHU_TEMP = "/GetAhuTempData";
 // 칠러 환수온도 정보
 const CHILER_CWST = "/GetChillerCwstData";
 
+// 보일러 파워 데이터
+const BOILER_POWER = "/GetBoilerPowerData";
+
 // DB IP = 43.200.196.117
 // user = root
 // PW = 1234

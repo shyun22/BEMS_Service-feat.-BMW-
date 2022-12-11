@@ -78,23 +78,27 @@
           <h3 class="section_title">AHU 전력</h3>
           <div class="temp_search">
             <select id="fac_name">
+				<option value="11" selected>보일러-01</option>
+                  <option value="12" >보일러-02</option>
+                  <option value="13" >보일러-03</option>
+                  <option value="14" >보일러-04</option>
+                  <option value="15" >보일러-05</option>
+                 
             </select>
-            <span class="fac_use">클린룸 : -</span>
-            <span class="fac_loc">설치장소 : -</span>
+            <!-- <span class="fac_use">클린룸 : -</span>
+            <span class="fac_loc">설치장소 : -</span> -->
             <div class="temp_form">
               <label for="temp_date">조회일자</label>
-              <input type="date" id="temp_date" min="2022-08-01" max="2022-10-25" />
+              <input type="date" id="temp_date" min="2010-01-11" max="2011-06-05" />
               <button type="button">검색</button>
             </div>
           </div>
           <div class="temp_chart">
 						<div class="temp_chart-container position-relative">
 							<div id="tooltip">
-								<div class="tooltipDate">2022년 11월 2일 00시 00분</div>
-								<div class="tooltipSet tooltip_line"><span class="tooltipTitle set">설정온도</span>&nbsp;:&nbsp;<span class="tooltipValue set">15.3 ℃</span></div>
-								<div class="tooltipSup tooltip_line"><span class="tooltipTitle sup">급기온도</span>&nbsp;:&nbsp;<span class="tooltipValue sup">21.5 ℃</span></div>
-								<div class="tooltipRet tooltip_line"><span class="tooltipTitle ret">환기온도</span>&nbsp;:&nbsp;<span class="tooltipValue ret">15.3 ℃</span></div>
-								<div class="tooltipOut tooltip_line"><span class="tooltipTitle out">외기온도</span>&nbsp;:&nbsp;<span class="tooltipValue out">21.5 ℃</span></div>
+								<div class="tooltipDate">2011년 06월 05일 00시 00분</div>
+								<div class="tooltipSet tooltip_line"><span class="tooltipTitle set">전력량</span>&nbsp;:&nbsp;<span class="tooltipValue set">15.3 ℃</span></div>
+								
 							</div>
 							<div id="temp_chart">
 							</div>
@@ -104,10 +108,7 @@
 								<thead>
 									<tr>
 										<th width="20%">일자</th>
-										<th width="20%">설정온도</th>
-										<th width="20%">급기온도</th>
-										<th width="20%">환기온도</th>
-										<th width="20%">외기온도</th>
+										<th width="20%">전력량</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -135,6 +136,6 @@
 	})
 
 	$('.temp_form button').click(function(){
-		ahuTempCall();
+		boilerTempCall();
 	})
 </script>
