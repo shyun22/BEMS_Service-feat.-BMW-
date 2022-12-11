@@ -1130,7 +1130,7 @@ function chilerChart(a) {
     .attr("font-family", "Spoqa Han Sans Neo")
     .attr("font-anchor", "middle")
     .attr("fill", "#282828")
-    .text("온도 (℃)");
+    .text("전력 (kw)");
 
   // 차트에 라인 생성 (칠러전력)
   const linePath = svg
@@ -1271,7 +1271,7 @@ function chilerChart(a) {
 }
 
 // chiler 테이블
-function ahuTable(a) {
+function chilerTable(a) {
   const table = document.querySelector(".temp-table tbody");
   table.innerHTML = "";
   a.forEach((e, i) => {
@@ -1396,9 +1396,9 @@ function boilerChart(a) {
     .attr("font-family", "Spoqa Han Sans Neo")
     .attr("font-anchor", "middle")
     .attr("fill", "#282828")
-    .text("온도 (℃)");
+    .text("전력 (kw)");
 
-  // 차트에 라인 생성 (칠러전력)
+  // 차트에 라인 생성 (보일러전력)
   const linePath = svg
     .append("path")
     .data([a])
@@ -1428,7 +1428,7 @@ function boilerChart(a) {
     .attr("y1", 0)
     .attr("y2", `${boilerHeight - boilerMargin.top}`);
 
-  // 칠러전력 circle 생성
+  // 보일러전력 circle 생성
   focus
     .append("circle")
     .attr("class", "circle_y1")
@@ -1476,7 +1476,7 @@ function boilerChart(a) {
           `translate(${x(dDate) + boilerMargin.left}, ${boilerMargin.bottom})`
         );
 
-      // 칠러 전력 circle 위치 변경
+      // 보일러 전력 circle 위치 변경
       focus
         .select(".circle_y1")
         .attr("opacity", 1)
@@ -1537,7 +1537,7 @@ function boilerChart(a) {
 }
 
 // boiler 테이블
-function ahuTable(a) {
+function boilerTable(a) {
   const table = document.querySelector(".temp-table tbody");
   table.innerHTML = "";
   a.forEach((e, i) => {

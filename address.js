@@ -39,6 +39,9 @@ const CHILER_CWST = "/GetChillerCwstData";
 // 보일러 파워 데이터
 const BOILER_POWER = "/GetBoilerPowerData";
 
+// 칠러 파워 데이터
+const CHILER_POWER = "/GetChillerPowerData";
+
 // 보일러 가스 데이터
 const BOILER_GAS ="/GetBoilerGasData"
 

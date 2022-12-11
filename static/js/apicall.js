@@ -428,7 +428,7 @@ function chilerTempCall() {
 
   // api 호출
   $.ajax({
-    url: `http://${ip}:${port}${CHILER_CWST}`,
+    url: `http://${ip}:${port}${CHILER_POWER}`,
     method: "GET",
     dataType: "json",
     data: {
@@ -446,8 +446,8 @@ function chilerTempCall() {
         e.runDateTime = jsonDateParse(String(e.runDateTime), "temp");
       });
 
-      ahuChart(json);
-      ahuTable(json);
+      chilerChart(json);
+      chilerTable(json);
 
       $(".temp_form button").removeAttr("disabled");
     })
@@ -486,8 +486,8 @@ function boilerTempCall() {
         e.runDateTime = jsonDateParse(String(e.runDateTime), "temp");
       });
 
-      ahuChart(json);
-      ahuTable(json);
+      boilerChart(json);
+      boilerTable(json);
 
       $(".temp_form button").removeAttr("disabled");
     })
