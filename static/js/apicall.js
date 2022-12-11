@@ -428,7 +428,7 @@ function chilerTempCall() {
 
   // api 호출
   $.ajax({
-    url: `http://${ip}:${port}${CHILER_CWST}`,
+    url: `http://${ip}:${port}${CHILER_POWER}`,
     method: "GET",
     dataType: "json",
     data: {
@@ -446,8 +446,8 @@ function chilerTempCall() {
         e.runDateTime = jsonDateParse(String(e.runDateTime), "temp");
       });
 
-      ahuChart(json);
-      ahuTable(json);
+      chilerChart(json);
+      chilerTable(json);
 
       $(".temp_form button").removeAttr("disabled");
     })
@@ -456,7 +456,7 @@ function chilerTempCall() {
     });
 }
 
-// boiler 환수온도 호출
+// boiler 전력 호출
 function boilerTempCall() {
   // 날짜 선택하지 않았을 시, 선택하라는 메시지 띄우기
   if ($("#temp_date").val() == "") {
@@ -486,8 +486,8 @@ function boilerTempCall() {
         e.runDateTime = jsonDateParse(String(e.runDateTime), "temp");
       });
 
-      ahuChart(json);
-      ahuTable(json);
+      boilerChart(json);
+      boilerTable(json);
 
       $(".temp_form button").removeAttr("disabled");
     })
