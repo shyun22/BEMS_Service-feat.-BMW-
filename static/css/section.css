@@ -279,6 +279,16 @@
   padding: 16px;
 }
 
+.dashboard-box-chiler {
+  width: 50%;
+  height: 245px;
+  background-color: #fff;
+  border-radius: 8px;
+  margin-top: 16px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.04);
+  padding: 16px;
+}
+
 .empty {
   width: 24.23857868020305%;
 }
@@ -534,6 +544,249 @@
   stroke: #ff3434;
 }
 
+/* temp svg_chiler */
+.svg_box_chiler {
+  margin-top: 20px;
+  display: inline-flex;
+  flex-flow: row wrap;
+  width: 120;
+  height: 200;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.svg_box_chiler svg {
+  transform: rotate(180deg);
+  pointer-events: none;
+}
+
+.svg_box_chiler .svg_cwst_box,
+.svg_box_chiler .svg_pow_box {
+  position: relative;
+}
+
+.svg_box_chiler .temp_title,
+.svg_box_chiler .temp_value {
+  position: absolute;
+  white-space: nowrap;
+}
+
+.svg_box_chiler .temp_title {
+  left: 50%;
+  bottom: 50%;
+  transform: translateX(-50%);
+}
+
+.svg_box_chiler .temp_value {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 35%;
+}
+
+.svg_box_chiler .svg_bg {
+  fill: none;
+  stroke: #f4f5f5;
+  stroke-width: 58;
+  stroke-miterlimit: 10;
+  stroke-dasharray: 693.2581, 693.2581;
+}
+
+.svg_box_chiler .svg_cwst,
+.svg_box_chiler .svg_pow {
+  fill: none;
+  stroke-width: 58;
+  stroke-miterlimit: 10;
+  transition: stroke-dasharray 0.7s ease;
+}
+
+.svg_box_chiler .svg_cwst {
+  stroke: #4a7ef9;
+}
+.svg_box_ahu .svg_pow {
+  stroke: #ff3434;
+}
+
+/* temp svg */
+.svg_box {
+  margin-top: 20px;
+  display: flex;
+  align-content: center;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.svg_box svg {
+  transform: rotate(180deg);
+  pointer-events: none;
+}
+
+.svg_box .svg_cwst_box,
+.svg_box .svg_pow_box {
+  position: relative;
+}
+
+.svg_box .temp_title,
+.svg_box .temp_value {
+  position: absolute;
+  white-space: nowrap;
+}
+
+.svg_box .temp_title {
+  left: 50%;
+  bottom: 50%;
+  transform: translateX(-50%);
+}
+
+.svg_box .temp_value {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 35%;
+}
+
+.svg_box .svg_bg {
+  fill: none;
+  stroke: #f4f5f5;
+  stroke-width: 58;
+  stroke-miterlimit: 10;
+  stroke-dasharray: 693.2581, 693.2581;
+}
+
+.svg_box .svg_cwst,
+.svg_box .svg_pow {
+  fill: none;
+  stroke-width: 58;
+  stroke-miterlimit: 10;
+  transition: stroke-dasharray 0.7s ease;
+}
+
+.svg_box .svg_cwst {
+  stroke: #4a7ef9;
+}
+.svg_box .svg_pow {
+  stroke: #ff3434;
+}
+
+/* temp svg_boiler */
+.svg_box_boiler {
+  margin-top: 20px;
+  display: inline-flex;
+  flex-flow: row wrap;
+  width: 120;
+  height: 200;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.svg_box_boiler svg {
+  transform: rotate(180deg);
+  pointer-events: none;
+}
+
+.svg_box_boiler .svg_gas_box,
+.svg_box_boiler .svg_pow_box {
+  position: relative;
+}
+
+.svg_box_boiler .temp_title,
+.svg_box_boiler .temp_value {
+  position: absolute;
+  white-space: nowrap;
+}
+
+.svg_box_boiler .temp_title {
+  left: 50%;
+  bottom: 50%;
+  transform: translateX(-50%);
+}
+
+.svg_box_boiler .temp_value {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 35%;
+}
+
+.svg_box_boiler .svg_bg {
+  fill: none;
+  stroke: #f4f5f5;
+  stroke-width: 58;
+  stroke-miterlimit: 10;
+  stroke-dasharray: 693.2581, 693.2581;
+}
+
+.svg_box_boiler .svg_gas,
+.svg_box_boiler .svg_pow {
+  fill: none;
+  stroke-width: 58;
+  stroke-miterlimit: 10;
+  transition: stroke-dasharray 0.7s ease;
+}
+
+.svg_box_boiler .svg_gas {
+  stroke: #4a7ef9;
+}
+.svg_box_boiler .svg_pow {
+  stroke: #ff3434;
+}
+
+/* temp svg */
+.svg_box {
+  margin-top: 20px;
+  display: flex;
+  align-content: center;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.svg_box svg {
+  transform: rotate(180deg);
+  pointer-events: none;
+}
+
+.svg_box .svg_gas_box,
+.svg_box .svg_pow_box {
+  position: relative;
+}
+
+.svg_box .temp_title,
+.svg_box .temp_value {
+  position: absolute;
+  white-space: nowrap;
+}
+
+.svg_box .temp_title {
+  left: 50%;
+  bottom: 50%;
+  transform: translateX(-50%);
+}
+
+.svg_box .temp_value {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 35%;
+}
+
+.svg_box .svg_bg {
+  fill: none;
+  stroke: #f4f5f5;
+  stroke-width: 58;
+  stroke-miterlimit: 10;
+  stroke-dasharray: 693.2581, 693.2581;
+}
+
+.svg_box .svg_gas,
+.svg_box .svg_pow {
+  fill: none;
+  stroke-width: 58;
+  stroke-miterlimit: 10;
+  transition: stroke-dasharray 0.7s ease;
+}
+
+.svg_box .svg_gas {
+  stroke: #4a7ef9;
+}
+.svg_box .svg_pow {
+  stroke: #ff3434;
+}
 /* temp */
 .temp_search {
   height: 120px;

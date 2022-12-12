@@ -248,36 +248,126 @@ function chilerUpdate(a) {
   const maxValue = 693.2581;
 
   // chiler-01
-  $(".chiler-01 .svg_sat").attr(
+  $(".chiler-01 .svg_cwst").attr(
     "stroke-dasharray",
     (maxValue * Number(a.chiler01_cwst)) / 100 + ", 1400"
   );
-  $(".chiler-01 .svg_oat").attr(
+  $(".chiler-01 .svg_pow").attr(
     "stroke-dasharray",
     (maxValue * Number(a.chiler01_pow)) / 100 + ", 1400"
   );
 
-  $(".chiler-01 .svg_sat_box .temp_value").html(
+  $(".chiler-01 .svg_cwst_box .temp_value").html(
     Number(a.chiler01_cwst).toFixed(1) + " ℃"
   );
-  $(".chiler-01 .svg_oat_box .temp_value").html(
+  $(".chiler-01 .svg_pow_box .temp_value").html(
     Number(a.chiler01_pow).toFixed(1) + " ℃"
   );
 
   // chiler-02
-  $(".ahu-02 .svg_sup").attr(
+  $(".chiler-02 .svg_cwst").attr(
     "stroke-dasharray",
     (maxValue * Number(a.chiler02_cwst)) / 100 + ", 1400"
   );
-  $(".ahu-02 .svg_set").attr(
+  $(".chiler-02 .svg_pow").attr(
     "stroke-dasharray",
     (maxValue * Number(a.chiler02_pow)) / 100 + ", 1400"
   );
-  $(".ahu-02 .svg_sup_box .temp_value").html(
+  $(".chiler-02 .svg_cwst_box .temp_value").html(
     Number(a.chiler02_cwst).toFixed(1) + " ℃"
   );
-  $(".ahu-02 .svg_set_box .temp_value").html(
+  $(".chiler-02 .svg_pow_box .temp_value").html(
     Number(a.chiler02_pow).toFixed(1) + " ℃"
+  );
+}
+
+// 보일러 실시간 업데이트
+function boilerUpdate(a) {
+  const maxValue = 693.2581;
+
+  // boiler-01
+  $(".boiler-01 .svg_pow").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.boiler01_pow)) / 100 + ", 1400"
+  );
+  $(".boiler-01 .svg_gas").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.boiler01_gas)) / 100 + ", 1400"
+  );
+
+  $(".boiler-01 .svg_pow_box .temp_value").html(
+    Number(a.boiler01_pow).toFixed(1) + " Kw"
+  );
+  $(".boiler-01 .svg_gas_box .temp_value").html(
+    Number(a.boiler01_gas).toFixed(1) + " "
+  );
+
+  // boiler-02
+  $(".boiler-02 .svg_pow").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.boiler02_pow)) / 100 + ", 1400"
+  );
+  $(".boiler-02 .svg_gas").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.boiler02_gas)) / 100 + ", 1400"
+  );
+
+  $(".boiler-02 .svg_pow_box .temp_value").html(
+    Number(a.boiler02_pow).toFixed(1) + " Kw"
+  );
+  $(".boiler-02 .svg_gas_box .temp_value").html(
+    Number(a.boiler02_gas).toFixed(1) + " "
+  );
+
+  // boiler-03
+  $(".boiler-03 .svg_pow").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.boiler03_pow)) / 100 + ", 1400"
+  );
+  $(".boiler-02 .svg_gas").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.boiler03_gas)) / 100 + ", 1400"
+  );
+
+  $(".boiler-03 .svg_pow_box .temp_value").html(
+    Number(a.boiler03_pow).toFixed(1) + " Kw"
+  );
+  $(".boiler-03 .svg_gas_box .temp_value").html(
+    Number(a.boiler03_gas).toFixed(1) + " "
+  );
+
+  // boiler-04
+  $(".boiler-04 .svg_pow").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.boiler04_pow)) / 100 + ", 1400"
+  );
+  $(".boiler-04 .svg_gas").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.boiler04_gas)) / 100 + ", 1400"
+  );
+
+  $(".boiler-04 .svg_pow_box .temp_value").html(
+    Number(a.boiler04_pow).toFixed(1) + " Kw"
+  );
+  $(".boiler-04 .svg_gas_box .temp_value").html(
+    Number(a.boiler04_gas).toFixed(1) + " "
+  );
+
+  // boiler-05
+  $(".boiler-05 .svg_pow").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.boiler05_pow)) / 100 + ", 1400"
+  );
+  $(".boiler-05 .svg_gas").attr(
+    "stroke-dasharray",
+    (maxValue * Number(a.boiler05_gas)) / 100 + ", 1400"
+  );
+
+  $(".boiler-05 .svg_pow_box .temp_value").html(
+    Number(a.boiler05_pow).toFixed(1) + " Kw"
+  );
+  $(".boiler-05 .svg_gas_box .temp_value").html(
+    Number(a.boiler05_gas).toFixed(1) + " "
   );
 }
 

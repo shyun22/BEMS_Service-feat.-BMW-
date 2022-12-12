@@ -48,6 +48,9 @@ const BOILER_GAS = "/GetBoilerGasData";
 // 대시보드 공조기 데이터
 const DASH_AHU = "/GetAhuNowTempData";
 
+// 대시보드 보일러 데이터
+const DASH_BOILER = "/GetBoilerTotalData";
+
 // DB IP = 43.200.196.117
 // user = root
 // PW = 1234

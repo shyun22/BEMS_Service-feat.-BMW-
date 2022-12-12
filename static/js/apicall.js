@@ -272,6 +272,407 @@ function firstUpdateCall() {
 
 // chiler
 
+function chilerUpdateCall() {
+  clearTimeout(updateTimeout);
+
+  let today = new Date();
+  let hour = today.getHours();
+  let minutes = today.getMinutes();
+
+  startBtn();
+
+  // 1분후 업데이트 다시 실행
+  updateTimeout = setTimeout(updateCall, 60000);
+
+  // 5분 단위의 시간대가 아닐 시 업데이트가 안되도록 return
+  if (minutes != 0 && minutes % 5 != 0) {
+    updateBool = false;
+    return;
+  }
+
+  // 5분 단위의 시간인지 확인하기
+  if ((minutes == 0 || minutes % 5 == 0) && !updateBool) {
+    hour = hour < 10 ? `0${hour}` : hour;
+    minutes = minutes < 10 ? `0${minutes}` : minutes;
+
+    // api 호출
+    $.ajax({
+      url: `http://${ip}:${port}${CHILER_CWST}`,
+      method: "GET",
+      dataType: "json",
+      data: { runDate: `201101110000` },
+    })
+      .done((data) => {
+        // 데이터 정리
+        const convertData = {};
+        data.forEach(function (key) {
+          switch (key.machine_num) {
+            case "9":
+              convertData.chiler01_cwst = key.ch_cwst;
+              convertData.chiler01_pow = key.ch_pow;
+              break;
+            case "10":
+              convertData.chiler02_cwst = key.ch_cwst;
+              convertData.chiler02_pow = key.ch_pow;
+              break;
+            default:
+              break;
+          }
+        });
+
+        chilerUpdate(convertData);
+
+        // 최종 업데이트 시간 표시
+        var updateYear = today.getFullYear();
+        var updateMonth = today.getMonth() + 1;
+        updateMonth = updateMonth < 10 ? `0${updateMonth}` : updateMonth;
+        var updateDay = today.getDate();
+        updateDay = updateDay < 10 ? `0${updateDay}` : updateDay;
+        $(".update_time").text(
+          jsonDateParse(
+            `${updateYear}${updateMonth}${updateDay}${hour}${minutes}`,
+            "dashboard"
+          )
+        );
+
+        /* 경고창으로 업데이트 알려주기 */
+        Notification.requestPermission(function (result) {
+          if (result == "granted" && windowBlur) {
+            // 알림 전송
+            var notification = new Notification("대시보드", {
+              body:
+                jsonDateParse(
+                  `${updateYear}${updateMonth}${updateDay}${hour}${minutes}`,
+                  "dashboard"
+                ) + " 데이터베이스 업데이트",
+              icon:
+                location.protocol +
+                "//" +
+                location.host +
+                "/static/images/bell.png",
+            });
+
+            notification.onclick = function () {
+              parent.focus();
+              window.focus(); // 업데이트 알림창 클릭시 브라우저창이 활성화 될 수 있도록 함
+            };
+
+            // 알림 닫기
+            setTimeout(function () {
+              notification.close();
+            }, 5000);
+          } else {
+            // 현재 FEMS 페이지가 활성화 중이라면 간단한 창으로 알림을 띄움
+            toastr.info(
+              jsonDateParse(
+                `${updateYear}${updateMonth}${updateDay}${hour}${minutes}`,
+                "dashboard"
+              ) + "데이터 업데이트",
+              "대시보드"
+            );
+          }
+        });
+      })
+      .fail((err) => {
+        console.log(err);
+      });
+  }
+
+  return;
+}
+
+// 페이지에 처음 진입 했을 때, 업데이트가 될 수 있도록 실행
+function chilerFirstUpdateCall() {
+  let today = new Date();
+  let hour = today.getHours();
+  hour = hour < 10 ? `0${hour}` : hour;
+  let minutes = today.getMinutes();
+
+  if (minutes % 5 == 0) updateBool = true;
+
+  // 대시보드를 호출할 때 현재시간과 제일 가까운 5분데이터 값 호출
+  let timeList = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55];
+  let target = minutes;
+  let near = 0;
+  let abs = 0;
+  var min = 59;
+
+  for (var i = 0; i < timeList.length; i++) {
+    abs =
+      timeList[i] - target < 0 ? -(timeList[i] - target) : timeList[i] - target;
+
+    if (abs < min) {
+      min = abs;
+      near = timeList[i];
+
+      if (minutes < timeList[i]) near = timeList[i - 1];
+    }
+  }
+
+  near = near < 10 ? `0${near}` : near;
+
+  startBtn();
+
+  // api 호출
+  $.ajax({
+    url: `http://${ip}:${port}${CHILER_CWST}`,
+    method: "GET",
+    dataType: "json",
+    data: { runDate: `201101110000` },
+  })
+    .done((data) => {
+      // 데이터 정리
+      const convertData = {};
+      data.map(function (key) {
+        switch (key.machine_num) {
+          case "9":
+            convertData.chiler01_cwst = key.ch_cwst;
+            convertData.chiler01_pow = key.ch_pow;
+            break;
+          case "10":
+            convertData.chiler02_cwst = key.ch_cwst;
+            convertData.chiler02_pow = key.ch_pow;
+            break;
+          default:
+            break;
+        }
+      });
+      console.log();
+
+      chilerUpdate(convertData);
+
+      // 업데이트 시간 출력
+      var updateYear = today.getFullYear();
+      var updateMonth = today.getMonth() + 1;
+      updateMonth = updateMonth < 10 ? `0${updateMonth}` : updateMonth;
+      var updateDay = today.getDate();
+      updateDay = updateDay < 10 ? `0${updateDay}` : updateDay;
+      $(".update_time").text(
+        jsonDateParse(
+          `${updateYear}${updateMonth}${updateDay}${hour}${near}`,
+          "dashboard"
+        )
+      );
+    })
+    .fail((err) => {
+      console.log(err);
+    });
+}
+
+// boiler
+
+function boilerUpdateCall() {
+  clearTimeout(updateTimeout);
+
+  let today = new Date();
+  let hour = today.getHours();
+  let minutes = today.getMinutes();
+
+  startBtn();
+
+  // 1분후 업데이트 다시 실행
+  updateTimeout = setTimeout(updateCall, 60000);
+
+  // 5분 단위의 시간대가 아닐 시 업데이트가 안되도록 return
+  if (minutes != 0 && minutes % 5 != 0) {
+    updateBool = false;
+    return;
+  }
+
+  // 5분 단위의 시간인지 확인하기
+  if ((minutes == 0 || minutes % 5 == 0) && !updateBool) {
+    hour = hour < 10 ? `0${hour}` : hour;
+    minutes = minutes < 10 ? `0${minutes}` : minutes;
+
+    // api 호출
+    $.ajax({
+      url: `http://${ip}:${port}${DASH_BOILER}`,
+      method: "GET",
+      dataType: "json",
+      data: { runDate: `201101110000 ` },
+    })
+      .done((data) => {
+        // 데이터 정리
+        const convertData = {};
+        data.forEach(function (key) {
+          switch (key.machine_num) {
+            case "11":
+              convertData.boiler01_gas = key.bo_gas;
+              convertData.boiler01_pow = key.bo_pow;
+              break;
+            case "12":
+              convertData.boiler02_gas = key.bo_gas;
+              convertData.boiler02_pow = key.bo_pow;
+              break;
+            case "13":
+              convertData.boiler03_gas = key.bo_gas;
+              convertData.boiler03_pow = key.bo_pow;
+              break;
+            case "14":
+              convertData.boiler04_gas = key.bo_gas;
+              convertData.boiler04_pow = key.bo_pow;
+              break;
+            case "15":
+              convertData.boiler05_gas = key.bo_gas;
+              convertData.boiler05_pow = key.bo_pow;
+              break;
+            default:
+              break;
+          }
+        });
+
+        boilerUpdate(convertData);
+
+        // 최종 업데이트 시간 표시
+        var updateYear = today.getFullYear();
+        var updateMonth = today.getMonth() + 1;
+        updateMonth = updateMonth < 10 ? `0${updateMonth}` : updateMonth;
+        var updateDay = today.getDate();
+        updateDay = updateDay < 10 ? `0${updateDay}` : updateDay;
+        $(".update_time").text(
+          jsonDateParse(
+            `${updateYear}${updateMonth}${updateDay}${hour}${minutes}`,
+            "dashboard"
+          )
+        );
+
+        /* 경고창으로 업데이트 알려주기 */
+        Notification.requestPermission(function (result) {
+          if (result == "granted" && windowBlur) {
+            // 알림 전송
+            var notification = new Notification("대시보드", {
+              body:
+                jsonDateParse(
+                  `${updateYear}${updateMonth}${updateDay}${hour}${minutes}`,
+                  "dashboard"
+                ) + " 데이터베이스 업데이트",
+              icon:
+                location.protocol +
+                "//" +
+                location.host +
+                "/static/images/bell.png",
+            });
+
+            notification.onclick = function () {
+              parent.focus();
+              window.focus(); // 업데이트 알림창 클릭시 브라우저창이 활성화 될 수 있도록 함
+            };
+
+            // 알림 닫기
+            setTimeout(function () {
+              notification.close();
+            }, 5000);
+          } else {
+            // 현재 FEMS 페이지가 활성화 중이라면 간단한 창으로 알림을 띄움
+            toastr.info(
+              jsonDateParse(
+                `${updateYear}${updateMonth}${updateDay}${hour}${minutes}`,
+                "dashboard"
+              ) + "데이터 업데이트",
+              "대시보드"
+            );
+          }
+        });
+      })
+      .fail((err) => {
+        console.log(err);
+      });
+  }
+
+  return;
+}
+
+// 페이지에 처음 진입 했을 때, 업데이트가 될 수 있도록 실행
+function boilerFirstUpdateCall() {
+  let today = new Date();
+  let hour = today.getHours();
+  hour = hour < 10 ? `0${hour}` : hour;
+  let minutes = today.getMinutes();
+
+  if (minutes % 5 == 0) updateBool = true;
+
+  // 대시보드를 호출할 때 현재시간과 제일 가까운 5분데이터 값 호출
+  let timeList = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55];
+  let target = minutes;
+  let near = 0;
+  let abs = 0;
+  var min = 59;
+
+  for (var i = 0; i < timeList.length; i++) {
+    abs =
+      timeList[i] - target < 0 ? -(timeList[i] - target) : timeList[i] - target;
+
+    if (abs < min) {
+      min = abs;
+      near = timeList[i];
+
+      if (minutes < timeList[i]) near = timeList[i - 1];
+    }
+  }
+
+  near = near < 10 ? `0${near}` : near;
+
+  startBtn();
+
+  // api 호출
+  $.ajax({
+    url: `http://${ip}:${port}${DASH_BOILER}`,
+    method: "GET",
+    dataType: "json",
+    data: { runDate: `201101110000 ` },
+  })
+    .done((data) => {
+      console.log(data);
+      // 데이터 정리
+      const convertData = {};
+      data.map(function (key) {
+        switch (key.machine_num) {
+          case "11":
+            convertData.boiler01_gas = key.bo_gas;
+            convertData.boiler01_pow = key.bo_pow;
+            break;
+          case "12":
+            convertData.boiler02_gas = key.bo_gas;
+            convertData.boiler02_pow = key.bo_pow;
+            break;
+          case "13":
+            convertData.boiler03_gas = key.bo_gas;
+            convertData.boiler03_pow = key.bo_pow;
+            break;
+          case "14":
+            convertData.boiler04_gas = key.bo_gas;
+            convertData.boiler04_pow = key.bo_pow;
+            break;
+          case "15":
+            convertData.boiler05_gas = key.bo_gas;
+            convertData.boiler05_pow = key.bo_pow;
+            break;
+          default:
+            break;
+        }
+      });
+      console.log(convertData);
+
+      boilerUpdate(convertData);
+
+      // 업데이트 시간 출력
+      var updateYear = today.getFullYear();
+      var updateMonth = today.getMonth() + 1;
+      updateMonth = updateMonth < 10 ? `0${updateMonth}` : updateMonth;
+      var updateDay = today.getDate();
+      updateDay = updateDay < 10 ? `0${updateDay}` : updateDay;
+      $(".update_time").text(
+        jsonDateParse(
+          `${updateYear}${updateMonth}${updateDay}${hour}${near}`,
+          "dashboard"
+        )
+      );
+    })
+    .fail((err) => {
+      console.log(err);
+    });
+}
+
 function ahuConfigurationCall() {
   $.ajax({
     url: `http://${ip}:${port}${ahuConfiguration}`,
